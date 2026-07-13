@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Homie Cafe</title>
+    
+</head>
+<body>
+    <!-- This skip link appears when keyboard users press Tab, allowing them to jump directly to the main page content instead of tabbing through every navigation item. -->
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+    <!-- This fixed header contains the brand name, responsive navigation links, search link, order link, and theme switcher required for the website theme toggle feature. -->
+    <header class="site-header" id="siteHeader">
+        <div class="nav-wrap">
+            <a href="index.html" class="brand" aria-label="Homie Cafe homepage">Homie Cafe</a>
+
+            <!-- This button appears on smaller screens and opens or closes the navigation menu using JavaScript in main.js. -->
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <!-- This navigation menu links to all major website pages so the multi-page website can be accessed consistently from every page. -->
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="catalogue.html">Menu</a>
+                <a href="about.html">Our Story</a>
+                <a href="team.html">Team</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="catalogue.html" aria-label="Search products">Search</a>
+                <a href="register.html">Register</a>
+                <a href="login.html" class="order-link">Login</a>
+
+                <!-- This button changes the website between light theme and dark theme -->
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch website theme">
+                    Theme
+                </button>
+            </nav>
+        </div>
+    </header>
+
+
+    <main id="mainContent" class="page-main">
+        <!-- This page hero introduces the brand story page and explains the purpose of the Alyriss Coffee concept. -->
+        <section class="simple-hero">
+            <p class="eyebrow dark">Our Story</p>
+            <h1>More Than Just a Coffee</h1>
+            <p>
+                Alyriss Coffee is a fictional premium coffee shop created for the Web Fundamentals assignment.
+                The brand focuses on carefully roasted beans, warm service, and a relaxing cafe atmosphere.
+            </p>
+        </section>
+
+        <!-- This two-column story section explains the client background and design direction, which can later be reused in the group report. -->
+        <section class="about-story section-padding" aria-labelledby="about-story-title">
+            <div class="about-image">
+                <!-- ABOUT IMAGE: Replace this online image with a local cafe interior image before final submission if required. -->
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80" alt="Warm coffee shop interior">
+            </div>
+
+            <div class="about-text">
+                <p class="eyebrow dark">Brand Background</p>
+                <h2 id="about-story-title">A calm place for better coffee moments.</h2>
+                <p>
+                    The website is designed to help customers explore Alyriss Coffee's menu, learn about the brand,
+                    submit reviews, and register as simulated members. The design uses dark coffee tones, warm copper,
+                    and soft cream colours to create a premium coffee-house identity.
+                </p>
+                <p>
+                    The layout also supports responsive design, accessibility basics, and pure JavaScript interactivity
+                    without using external CSS or JavaScript frameworks.
+                </p>
+            </div>
+        </section>
+
+        <!-- This values section provides simple content blocks that make the about page look complete and easy to understand. -->
+        <section class="values-section section-padding" aria-labelledby="values-title">
+            <div class="section-top centered">
+                <p class="eyebrow dark">What We Value</p>
+                <h2 id="values-title">Our Coffee Principles</h2>
+            </div>
+
+            <div class="value-grid">
+                <article class="value-card">
+                    <h3>Quality Beans</h3>
+                    <p>We present the brand as a coffee shop that selects beans carefully for aroma, taste, and balance.</p>
+                </article>
+
+                <article class="value-card">
+                    <h3>Warm Service</h3>
+                    <p>The website tone is friendly and welcoming so customers feel comfortable exploring the brand.</p>
+                </article>
+
+                <article class="value-card">
+                    <h3>Modern Experience</h3>
+                    <p>The site uses interactive features such as theme switching, registration, catalogue search, and reviews.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- This footer gives the website a finished commercial look and provides quick links, customer care links, and contact details similar to a premium coffee brand footer. -->
+    <footer class="site-footer">
+        <div class="footer-wrap">
+            <div class="footer-brand">
+                <h2>Alyriss Coffee</h2>
+                <p>Premium coffee, calm spaces, better mornings.</p>
+            </div>
+
+            <div class="footer-columns">
+                <section>
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="catalogue.html">Menu</a>
+                    <a href="about.html">About Us</a>
+                    <a href="team.html">Our Team</a>
+                </section>
+
+                <section>
+                    <h3>Customer Care</h3>
+                    <a href="reviews.html">Customer Reviews</a>
+                    <a href="register.html">Member Registration</a>
+                    <a href="login.html">Member Login</a>
+                    <a href="#">Terms & Conditions</a>
+                </section>
+
+                <section>
+                    <h3>Contact Us</h3>
+                    <p>+60 12-345 6789</p>
+                    <p>hello@alyrisscoffee.com</p>
+                    <p>City Walk, Kuala Lumpur</p>
+                </section>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Privacy Policy | Terms of Use | Cookies Policy</p>
+                <p>© 2026 Alyriss Coffee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
 
