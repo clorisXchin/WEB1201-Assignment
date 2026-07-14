@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Alyriss Coffee</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <script src="js/main.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    
+</head>
+<body>
+    <!-- This skip link appears when keyboard users press Tab, allowing them to jump directly to the main page content instead of tabbing through every navigation item. -->
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+    <!-- This fixed header contains the brand name, responsive navigation links, search link, order link, and theme switcher required for the website theme toggle feature. -->
+    <header class="site-header" id="siteHeader">
+        <div class="nav-wrap">
+            <a href="index.html" class="brand" aria-label="Alyriss Coffee homepage">Alyriss</a>
+
+            <!-- This button appears on smaller screens and opens or closes the navigation menu using JavaScript in main.js. -->
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <!-- This navigation menu links to all major website pages so the multi-page website can be accessed consistently from every page. -->
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="catalogue.html">Menu</a>
+                <a href="about.html">Our Story</a>
+                <a href="team.html">Team</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="catalogue.html" aria-label="Search products">Search</a>
+                <a href="register.html">Register</a>
+                <a href="login.html" class="order-link">Login</a>
+
+                <!-- This button changes the website between the original classic theme and the darker brew theme, with the choice saved in localStorage. -->
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch website theme">
+                    Brew Theme
+                </button>
+            </nav>
+        </div>
+    </header>
+
+
+    <main id="mainContent">
+        <!-- This hero section is the first visual section of the homepage and introduces the coffee shop with a premium dark background image and two main call-to-action buttons. -->
+        <section class="hero-section" aria-labelledby="hero-title">
+            <!-- HERO IMAGE: change this image in css/style.css under .hero-bg and body.brew-theme .hero-bg when you want to use your own local image. -->
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <p class="eyebrow">Rich. Smooth. Perfect.</p>
+                <h1 id="hero-title">Experience Coffee Like Never Before</h1>
+                <p class="hero-text">
+                    Handcrafted coffee made from carefully selected beans,
+                    roasted for a warm and premium flavour.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="catalogue.html" class="hero-button">Explore Menu</a>
+                    <a href="about.html" class="outline-button">Our Story</a>
+                </div>
+
+                <div class="hero-badges" aria-label="Coffee quality highlights">
+                    <span>Premium Beans</span>
+                    <span>Expertly Roasted</span>
+                    <span>Made With Love</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- This story preview section matches the requested coffee-shop aesthetic by showing a large image beside a dark content card with an Explore Us button. -->
+        <section class="story-preview section-padding" aria-labelledby="story-title">
+            <!-- STORY IMAGE: replace the online image in css/style.css under .story-image with a local cafe or coffee-bean image later. -->
+            <div class="story-image"></div>
+
+            <div class="story-card">
+                <p class="eyebrow dark">About Us</p>
+                <h2 id="story-title">More Than Just a Coffee</h2>
+                <p>
+                    At Alyriss Coffee, we believe coffee is more than a drink.
+                    It is an experience shaped by good beans, calm spaces, and thoughtful service.
+                </p>
+
+                <ul class="story-list">
+                    <li>Sustainably sourced beans</li>
+                    <li>Ethically traded</li>
+                    <li>Freshly roasted</li>
+                    <li>Barista crafted</li>
+                </ul>
+
+                <a href="about.html" class="text-button">Explore Us</a>
+            </div>
+        </section>
+
+        <!-- This product preview section displays two rows of products with three product cards per row, while the full searchable catalogue is placed on catalogue.html. -->
+        <section class="products-preview section-padding" aria-labelledby="products-title">
+            <div class="section-top">
+                <a href="catalogue.html" class="small-link">See all our products</a>
+                <p class="eyebrow dark">Our Signature</p>
+                <h2 id="products-title">Popular Picks</h2>
+            </div>
+
+            <div class="product-grid preview-grid">
+                <article class="product-card">
+                    <!-- PRODUCT IMAGE 1: Iced Caramel Latte preview card. -->
+                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=80" alt="Iced caramel latte in a glass">
+                    <h3>Iced Caramel Latte</h3>
+                    <p>Layered milk, espresso, and caramel.</p>
+                    <div class="product-bottom">
+                        <span>RM 13.90</span>
+                        <a href="catalogue.html">Order</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <!-- PRODUCT IMAGE 2: Cappuccino preview card. -->
+                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=80" alt="Cappuccino coffee in a cup">
+                    <h3>Cappuccino</h3>
+                    <p>Classic espresso with rich foam.</p>
+                    <div class="product-bottom">
+                        <span>RM 12.90</span>
+                        <a href="catalogue.html">Order</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <!-- PRODUCT IMAGE 3: Mocha preview card. -->
+                    <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=900&q=80" alt="Mocha coffee with chocolate topping">
+                    <h3>Mocha</h3>
+                    <p>Espresso with chocolate and steamed milk.</p>
+                    <div class="product-bottom">
+                        <span>RM 14.90</span>
+                        <a href="catalogue.html">Order</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <!-- PRODUCT IMAGE 4: Espresso preview card. -->
+                    <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=900&q=80" alt="Small cup of espresso coffee">
+                    <h3>Espresso</h3>
+                    <p>Strong, bold, and pure coffee taste.</p>
+                    <div class="product-bottom">
+                        <span>RM 8.90</span>
+                        <a href="catalogue.html">Order</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <!-- PRODUCT IMAGE 5: Matcha Latte preview card. -->
+                    <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=900&q=80" alt="Iced matcha latte in a glass">
+                    <h3>Matcha Latte</h3>
+                    <p>Earthy matcha with creamy milk.</p>
+                    <div class="product-bottom">
+                        <span>RM 14.50</span>
+                        <a href="catalogue.html">Order</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <!-- PRODUCT IMAGE 6: Seasonal pastry preview card. -->
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="Freshly baked pastry on a table">
+                    <h3>Seasonal Pastry</h3>
+                    <p>Freshly baked pastry of the day.</p>
+                    <div class="product-bottom">
+                        <span>RM 10.90</span>
+                        <a href="catalogue.html">Order</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- This team preview section replaces the old carousel with three simple clickable image boxes, so no JavaScript is needed for this part. -->
+        <section class="team-preview section-padding" aria-labelledby="team-title">
+            <div class="section-top centered">
+                <p class="eyebrow dark">Meet the people</p>
+                <h2 id="team-title">The Alyriss Team</h2>
+                <p class="section-description">
+                    Click a team image to view the member's individual portfolio page.
+                </p>
+            </div>
+
+            <div class="team-simple-grid">
+                <a href="portfolio-asriel.html" class="team-image-card">
+                    <!-- TEAM IMAGE 1: Replace this with Asriel's actual photo later. -->
+                    <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=900&q=80" alt="Team member representing Asriel">
+                    <div class="team-image-info">
+                        <h3>Asriel Looi</h3>
+                        <p>Frontend Structure & Design Lead</p>
+                    </div>
+                </a>
+
+                <a href="portfolio-member2.html" class="team-image-card">
+                    <!-- TEAM IMAGE 2: Replace this with Member 2's actual photo later. -->
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Team member representing Member Two">
+                    <div class="team-image-info">
+                        <h3>Member Two</h3>
+                        <p>JavaScript Feature Developer</p>
+                    </div>
+                </a>
+
+                <a href="portfolio-member3.html" class="team-image-card">
+                    <!-- TEAM IMAGE 3: Replace this with Member 3's actual photo later. -->
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80" alt="Team member representing Member Three">
+                    <div class="team-image-info">
+                        <h3>Member Three</h3>
+                        <p>Review, Testing & Documentation Lead</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- This visit section gives basic location and operating-hour information so the homepage feels complete like a real coffee shop website. -->
+        <section class="visit-section section-padding" id="visit" aria-labelledby="visit-title">
+            <h2 id="visit-title">Stay in the Loop</h2>
+            <p>Visit Alyriss Coffee at Lot G-08, City Walk, Kuala Lumpur. Open daily from 8.00 AM to 10.00 PM.</p>
+        </section>
+    </main>
+
+    <!-- This footer gives the website a finished commercial look and provides quick links, customer care links, and contact details similar to a premium coffee brand footer. -->
+    <footer class="site-footer">
+        <div class="footer-wrap">
+            <div class="footer-brand">
+                <h2>Alyriss Coffee</h2>
+                <p>Premium coffee, calm spaces, better mornings.</p>
+            </div>
+
+            <div class="footer-columns">
+                <section>
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="catalogue.html">Menu</a>
+                    <a href="about.html">About Us</a>
+                    <a href="team.html">Our Team</a>
+                </section>
+
+                <section>
+                    <h3>Customer Care</h3>
+                    <a href="reviews.html">Customer Reviews</a>
+                    <a href="register.html">Member Registration</a>
+                    <a href="login.html">Member Login</a>
+                    <a href="#">Terms & Conditions</a>
+                </section>
+
+                <section>
+                    <h3>Contact Us</h3>
+                    <p>+60 12-345 6789</p>
+                    <p>hello@alyrisscoffee.com</p>
+                    <p>City Walk, Kuala Lumpur</p>
+                </section>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Privacy Policy | Terms of Use | Cookies Policy</p>
+                <p>© 2026 Alyriss Coffee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
