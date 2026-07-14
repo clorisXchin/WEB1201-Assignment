@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Alyriss Coffee</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <script src="js/main.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/auth.js" defer></script>
+</head>
+<body>
+    <!-- This skip link appears when keyboard users press Tab, allowing them to jump directly to the main page content instead of tabbing through every navigation item. -->
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+    <!-- This fixed header contains the brand name, responsive navigation links, search link, order link, and theme switcher required for the website theme toggle feature. -->
+    <header class="site-header" id="siteHeader">
+        <div class="nav-wrap">
+            <a href="index.html" class="brand" aria-label="Alyriss Coffee homepage">Alyriss</a>
+
+            <!-- This button appears on smaller screens and opens or closes the navigation menu using JavaScript in main.js. -->
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <!-- This navigation menu links to all major website pages so the multi-page website can be accessed consistently from every page. -->
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="catalogue.html">Menu</a>
+                <a href="about.html">Our Story</a>
+                <a href="team.html">Team</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="catalogue.html" aria-label="Search products">Search</a>
+                <a href="register.html">Register</a>
+                <a href="login.html" class="order-link">Login</a>
+
+                <!-- This button changes the website between the original classic theme and the darker brew theme, with the choice saved in localStorage. -->
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch website theme">
+                    Brew Theme
+                </button>
+            </nav>
+        </div>
+    </header>
+
+
+    <main id="mainContent" class="page-main">
+        <!-- This registration hero explains that the form is a simulated member registration feature for client-side JavaScript validation. -->
+        <section class="simple-hero compact-hero">
+            <p class="eyebrow dark">Member Registration</p>
+            <h1>Create Your Alyriss Account</h1>
+            <p>This simulated registration form uses three steps, a progress indicator, and client-side validation.</p>
+        </section>
+
+        <!-- This multi-step form is controlled by js/auth.js and only shows one form step at a time. -->
+        <section class="auth-section section-padding" aria-labelledby="register-title">
+            <div class="auth-card">
+                <h2 id="register-title">Registration Form</h2>
+
+                <!-- This progress bar visually shows the user's current registration step. -->
+                <div class="progress-wrapper" aria-label="Registration progress">
+                    <div class="progress-step active" data-step-label="1">Personal</div>
+                    <div class="progress-step" data-step-label="2">Account</div>
+                    <div class="progress-step" data-step-label="3">Preferences</div>
+                </div>
+
+                <form id="registerForm" novalidate>
+                    <!-- Step 1 collects the user's personal details and is validated before moving to Step 2. -->
+                    <fieldset class="form-step active">
+                        <legend>Step 1: Personal Information</legend>
+
+                        <div class="form-group">
+                            <label for="fullName">Full name</label>
+                            <input type="text" id="fullName" autocomplete="name">
+                            <small class="error-message"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone number</label>
+                            <input type="tel" id="phoneNumber" placeholder="Example: 0123456789">
+                            <small class="error-message"></small>
+                        </div>
+                    </fieldset>
+
+                    <!-- Step 2 collects login details and checks email format plus password length before moving to Step 3. -->
+                    <fieldset class="form-step">
+                        <legend>Step 2: Account Details</legend>
+
+                        <div class="form-group">
+                            <label for="registerEmail">Email address</label>
+                            <input type="email" id="registerEmail" autocomplete="email">
+                            <small class="error-message"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" id="registerPassword" autocomplete="new-password">
+                            <small class="error-message"></small>
+                        </div>
+                    </fieldset>
+
+                    <!-- Step 3 collects coffee preferences and completes the simulated registration when submitted. -->
+                    <fieldset class="form-step">
+                        <legend>Step 3: Coffee Preferences</legend>
+
+                        <div class="form-group">
+                            <label for="favouriteDrink">Favourite drink</label>
+                            <select id="favouriteDrink">
+                                <option value="">Choose one drink</option>
+                                <option value="Latte">Latte</option>
+                                <option value="Cappuccino">Cappuccino</option>
+                                <option value="Cold Brew">Cold Brew</option>
+                                <option value="Matcha Latte">Matcha Latte</option>
+                            </select>
+                            <small class="error-message"></small>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter">
+                            <label for="newsletter">I want to receive Alyriss Coffee updates.</label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-buttons">
+                        <button type="button" class="outline-dark-button" id="prevStep">Back</button>
+                        <button type="button" class="dark-button" id="nextStep">Next</button>
+                        <button type="submit" class="dark-button hidden" id="submitRegister">Create Account</button>
+                    </div>
+                </form>
+
+                <p class="form-success" id="registerSuccess"></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- This footer gives the website a finished commercial look and provides quick links, customer care links, and contact details similar to a premium coffee brand footer. -->
+    <footer class="site-footer">
+        <div class="footer-wrap">
+            <div class="footer-brand">
+                <h2>Alyriss Coffee</h2>
+                <p>Premium coffee, calm spaces, better mornings.</p>
+            </div>
+
+            <div class="footer-columns">
+                <section>
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="catalogue.html">Menu</a>
+                    <a href="about.html">About Us</a>
+                    <a href="team.html">Our Team</a>
+                </section>
+
+                <section>
+                    <h3>Customer Care</h3>
+                    <a href="reviews.html">Customer Reviews</a>
+                    <a href="register.html">Member Registration</a>
+                    <a href="login.html">Member Login</a>
+                    <a href="#">Terms & Conditions</a>
+                </section>
+
+                <section>
+                    <h3>Contact Us</h3>
+                    <p>+60 12-345 6789</p>
+                    <p>hello@alyrisscoffee.com</p>
+                    <p>City Walk, Kuala Lumpur</p>
+                </section>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Privacy Policy | Terms of Use | Cookies Policy</p>
+                <p>© 2026 Alyriss Coffee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

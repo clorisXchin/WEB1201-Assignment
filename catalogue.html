@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Alyriss Coffee</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <script src="js/main.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/catalogue.js" defer></script>
+</head>
+<body>
+    <!-- This skip link appears when keyboard users press Tab, allowing them to jump directly to the main page content instead of tabbing through every navigation item. -->
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+    <!-- This fixed header contains the brand name, responsive navigation links, search link, order link, and theme switcher required for the website theme toggle feature. -->
+    <header class="site-header" id="siteHeader">
+        <div class="nav-wrap">
+            <a href="index.html" class="brand" aria-label="Willow Cafe homepage">Willow</a>
+
+            <!-- This button appears on smaller screens and opens or closes the navigation menu using JavaScript in main.js. -->
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <!-- This navigation menu links to all major website pages so the multi-page website can be accessed consistently from every page. -->
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="catalogue.html">Menu</a>
+                <a href="about.html">Our Story</a>
+                <a href="team.html">Team</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="catalogue.html" aria-label="Search products">Search</a>
+                <a href="register.html">Register</a>
+                <a href="login.html" class="order-link">Login</a>
+
+                <!-- This button changes the website between the original classic theme and the darker brew theme, with the choice saved in localStorage. -->
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch website theme">
+                    Brew Theme
+                </button>
+            </nav>
+        </div>
+    </header>
+
+
+    <main id="mainContent" class="page-main">
+        <!-- This catalogue hero introduces the product page where JavaScript search, category filtering, and price/name sorting are demonstrated. -->
+        <section class="simple-hero">
+            <p class="eyebrow dark">Menu Search</p>
+            <h1>Find Your Next Cup</h1>
+            <p>
+                Search, filter, and sort Alyriss Coffee products without reloading the page.
+                This page is one of the required JavaScript features.
+            </p>
+        </section>
+
+        <!-- This tool area contains the input and dropdown controls used by catalogue.js to dynamically change the product list. -->
+        <section class="catalogue-tools section-padding" aria-label="Product search and filter tools">
+            <div class="tool-grid">
+                <div class="form-group">
+                    <label for="productSearch">Search by keyword</label>
+                    <input type="search" id="productSearch" placeholder="Try: latte, espresso, pastry">
+                </div>
+
+                <div class="form-group">
+                    <label for="categoryFilter">Filter by category</label>
+                    <select id="categoryFilter">
+                        <option value="all">All categories</option>
+                        <option value="coffee">Coffee</option>
+                        <option value="non-coffee">Non-coffee</option>
+                        <option value="pastry">Pastry</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="sortProducts">Sort products</label>
+                    <select id="sortProducts">
+                        <option value="default">Default order</option>
+                        <option value="name-az">Name A-Z</option>
+                        <option value="price-low">Price low to high</option>
+                        <option value="price-high">Price high to low</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- This catalogue grid is empty in the HTML because catalogue.js renders the product cards from a product array. -->
+        <section class="catalogue-list section-padding" aria-labelledby="catalogue-title">
+            <h2 id="catalogue-title">All Products</h2>
+            <div class="product-grid" id="catalogueGrid"></div>
+            <p class="empty-message" id="emptyMessage">No products found. Try another keyword or category.</p>
+        </section>
+    </main>
+
+    <!-- This footer gives the website a finished commercial look and provides quick links, customer care links, and contact details similar to a premium coffee brand footer. -->
+    <footer class="site-footer">
+        <div class="footer-wrap">
+            <div class="footer-brand">
+                <h2>Willow Cafe </h2>
+                <p>Premium coffee, calm spaces, better mornings.</p>
+            </div>
+
+            <div class="footer-columns">
+                <section>
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="catalogue.html">Menu</a>
+                    <a href="about.html">About Us</a>
+                    <a href="team.html">Our Team</a>
+                </section>
+
+                <section>
+                    <h3>Customer Care</h3>
+                    <a href="reviews.html">Customer Reviews</a>
+                    <a href="register.html">Member Registration</a>
+                    <a href="login.html">Member Login</a>
+                    <a href="#">Terms & Conditions</a>
+                </section>
+
+                <section>
+                    <h3>Contact Us</h3>
+                    <p>+60 12-345 6789</p>
+                    <p>hello@alyrisscoffee.com</p>
+                    <p>City Walk, Kuala Lumpur</p>
+                </section>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Privacy Policy | Terms of Use | Cookies Policy</p>
+                <p>© 2026 Alyriss Coffee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
