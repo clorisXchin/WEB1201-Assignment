@@ -1,0 +1,256 @@
+/*
+    REVIEWS.JS
+    This file is used for the customer review module.
+
+    It allows the user to:
+    - select 1 to 5 stars
+    - type a name and review
+    - view a character count
+    - display the review on the page
+    - save reviews in localStorage
+*/
+
+/* 0 means the user has not selected a star rating yet. */
+var selectedRating = 0;
+
+/* Get all required review-page elements. */
+var reviewForm = document.getElementById("reviewForm");
+var reviewName = document.getElementById("reviewName");
+var reviewText = document.getElementById("reviewText");
+var characterCount = document.getElementById("characterCount");
+var ratingError = document.getElementById("ratingError");
+var reviewList = document.getElementById("reviewList");
+
+/* Get all five star buttons inside the starRating container. */
+var starButtons =
+    document.getElementById("starRating").getElementsByTagName("button");
+
+
+/* Highlight the selected number of stars. */
+function showSelectedStars(rating) {
+
+    /* Save the selected rating so submitReview can use it later. */
+    selectedRating = rating;
+
+    /* Clear the old rating error after the user selects a star. */
+    ratingError.innerHTML = "";
+
+    var i;
+
+    /* Check all five star buttons. */
+    for (i = 0; i < starButtons.length; i++) {
+
+        /*
+            Example: when rating is 3, positions 0, 1 and 2
+            are smaller than 3, so the first three stars are selected.
+        */
+        if (i < rating) {
+            starButtons[i].className = "selected";
+            starButtons[i].setAttribute("aria-pressed", "true");
+        } else {
+            starButtons[i].className = "";
+            starButtons[i].setAttribute("aria-pressed", "false");
+        }
+    }
+}
+
+
+/* Update the live character number below the textarea. */
+function updateCharacterCount() {
+    characterCount.innerHTML = reviewText.value.length;
+}
+
+
+/* Make one review card and place it inside reviewList. */
+function showReview(name, text, rating) {
+
+    /* Make the HTML elements needed for one review. */
+    var reviewCard = document.createElement("article");
+    var reviewHeading = document.createElement("h3");
+    var reviewStars = document.createElement("p");
+    var reviewParagraph = document.createElement("p");
+
+    /* Start with no star symbols. */
+    var starText = "";
+    var i;
+
+    /* Give the new article a CSS class. */
+    reviewCard.className = "review-item";
+
+    /* Put the reviewer's name in the heading. */
+    reviewHeading.textContent = name;
+
+    /* Build a five-star display using filled and empty stars. */
+    for (i = 0; i < 5; i++) {
+        if (i < rating) {
+            starText = starText + "★";
+        } else {
+            starText = starText + "☆";
+        }
+    }
+
+    /* Put the stars and review text into their paragraphs. */
+    reviewStars.className = "review-stars";
+    reviewStars.textContent = starText;
+    reviewParagraph.textContent = text;
+
+    /* Build the review card by placing the elements inside the article. */
+    reviewCard.appendChild(reviewHeading);
+    reviewCard.appendChild(reviewStars);
+    reviewCard.appendChild(reviewParagraph);
+
+    /* Add the completed card to the visible review list. */
+    reviewList.appendChild(reviewCard);
+}
+
+
+/* Save one review in localStorage. */
+function saveReview(name, text, rating) {
+
+    /*
+        Get the number of saved reviews.
+        parseInt converts the stored text into a whole number.
+    */
+    var reviewCount =
+        parseInt(localStorage.getItem("willowReviewCount"));
+
+    /* If no number was saved, begin at 0. */
+    if (isNaN(reviewCount) === true) {
+        reviewCount = 0;
+    }
+
+    /* Increase the review number before saving the new review. */
+    reviewCount++;
+
+    /* Save the new total. */
+    localStorage.setItem("willowReviewCount", reviewCount);
+
+    /*
+        Save each review using numbered keys.
+        Example: willowReviewName1, willowReviewText1, willowReviewRating1.
+    */
+    localStorage.setItem("willowReviewName" + reviewCount, name);
+    localStorage.setItem("willowReviewText" + reviewCount, text);
+    localStorage.setItem("willowReviewRating" + reviewCount, rating);
+}
+
+
+/* Load all reviews saved during previous visits. */
+function loadSavedReviews() {
+
+    /* Get the number of saved reviews. */
+    var reviewCount =
+        parseInt(localStorage.getItem("willowReviewCount"));
+
+    var i;
+
+    /* Use 0 if no review count exists. */
+    if (isNaN(reviewCount) === true) {
+        reviewCount = 0;
+    }
+
+    /* Repeat from review 1 up to the saved review count. */
+    for (i = 1; i <= reviewCount; i++) {
+
+        /* Get the information belonging to the current review number. */
+        var savedName = localStorage.getItem("willowReviewName" + i);
+        var savedText = localStorage.getItem("willowReviewText" + i);
+        var savedRating =
+            parseInt(localStorage.getItem("willowReviewRating" + i));
+
+        /* Show the review only when its required data exists. */
+        if (savedName !== null && savedText !== null) {
+            showReview(savedName, savedText, savedRating);
+        }
+    }
+}
+
+
+/* Check and submit a new review. */
+function submitReview() {
+
+    /* Get the error message belonging to the name input. */
+    var nameError =
+        reviewName.parentNode.getElementsByClassName("error-message")[0];
+
+    /* Get the error message belonging to the review textarea. */
+    var textError =
+        reviewText.parentNode.getElementsByClassName("error-message")[0];
+
+    /* Start by assuming the form is valid. */
+    var valid = true;
+
+    /* Clear previous errors before checking again. */
+    nameError.innerHTML = "";
+    textError.innerHTML = "";
+    ratingError.innerHTML = "";
+
+    /* A rating of 0 means no star was selected. */
+    if (selectedRating === 0) {
+        ratingError.innerHTML = "Please choose a star rating.";
+        valid = false;
+    }
+
+    /* The reviewer name cannot be empty. */
+    if (reviewName.value === "") {
+        nameError.innerHTML = "Please enter your name.";
+        valid = false;
+    }
+
+    /* Require at least 10 characters in the review. */
+    if (reviewText.value.length < 10) {
+        textError.innerHTML =
+            "The review must contain at least 10 characters.";
+        valid = false;
+    }
+
+    /* Stop when any check failed. */
+    if (valid === false) {
+        return false;
+    }
+
+    /* Save and display the valid review. */
+    saveReview(reviewName.value, reviewText.value, selectedRating);
+    showReview(reviewName.value, reviewText.value, selectedRating);
+
+    /* Reset the form, rating, character count and star display. */
+    reviewForm.reset();
+    selectedRating = 0;
+    characterCount.innerHTML = "0";
+    showSelectedStars(0);
+
+    /* Prevent the normal form submission and page reload. */
+    return false;
+}
+
+
+/* Only add events when the review form exists. */
+if (reviewForm !== null) {
+    var i;
+
+    /* Give every star button a click event. */
+    for (i = 0; i < starButtons.length; i++) {
+
+        /*
+            This function runs for the exact star that was clicked.
+            "this" means the clicked button.
+        */
+        starButtons[i].onclick = function () {
+
+            /* Read data-rating and convert it into a whole number. */
+            var rating = parseInt(this.getAttribute("data-rating"));
+
+            /* Highlight the correct number of stars. */
+            showSelectedStars(rating);
+        };
+    }
+
+    /* Update the character count while the user types. */
+    reviewText.onkeyup = updateCharacterCount;
+
+    /* Check and submit the review when the form is submitted. */
+    reviewForm.onsubmit = submitReview;
+
+    /* Display reviews saved during previous visits. */
+    loadSavedReviews();
+}

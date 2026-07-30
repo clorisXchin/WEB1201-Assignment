@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Willow Brew</title>
+    <title>Login | Willow Brew</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     
     <script src="js/main.js" defer></script>
     <script src="js/theme.js" defer></script>
+    <script src="js/auth.js" defer></script>
     
 </head>
 <body>
@@ -37,185 +38,65 @@
                 <a href="login.html" class="order-link">Login</a>
 
                 <!-- This button changes the website between the original classic theme and the darker brew theme, with the choice saved in localStorage. -->
-                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch website theme">
-                    Brew Theme
+                <button class="theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    onclick="toggleTheme()"
+                    aria-label="Switch website theme"
+                    aria-pressed="false">
+                    Dark Theme
                 </button>
             </nav>
         </div>
     </header>
 
 
-    <main id="mainContent">
-        <!-- This hero section is the first visual section of the homepage and introduces the coffee shop with a premium dark background image and two main call-to-action buttons. -->
-        <section class="hero-section" aria-labelledby="hero-title">
-            <!-- HERO IMAGE: change this image in css/style.css under .hero-bg and body.brew-theme .hero-bg when you want to use your own local image. -->
-            <div class="hero-bg"></div>
-            <div class="hero-overlay"></div>
+   <main id="mainContent" class="page-main">
+    <section class="simple-hero compact-hero">
+        <p class="eyebrow dark">Member Login</p>
+        <h1>Welcome Back</h1>
+        <p>
+            Use the email and password saved during the simulated registration.
+        </p>
+    </section>
 
-            <div class="hero-content">
-                <p class="eyebrow">Rich. Smooth. Perfect.</p>
-                <h1 id="hero-title">Experience Coffee Like Never Before</h1>
-                <p class="hero-text">
-                    Handcrafted coffee made from carefully selected beans,
-                    roasted for a warm and premium flavour.
-                </p>
+    <section class="auth-section section-padding" aria-labelledby="login-title">
+        <div class="auth-card">
+            <h2 id="login-title">Login Form</h2>
 
-                <div class="hero-actions">
-                    <a href="catalogue.html" class="hero-button">Explore Menu</a>
-                    <a href="about.html" class="outline-button">Our Story</a>
+            <!-- auth.js runs checkLogin when this form is submitted. -->
+            <form id="loginForm" novalidate>
+
+                <div class="form-group">
+                    <label for="loginEmail">Email address</label>
+                    <input type="email" id="loginEmail" autocomplete="email">
                 </div>
 
-                <div class="hero-badges" aria-label="Coffee quality highlights">
-                    <span>Premium Beans</span>
-                    <span>Expertly Roasted</span>
-                    <span>Made With Love</span>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        autocomplete="current-password">
                 </div>
-            </div>
-        </section>
 
-        <!-- This story preview section matches the requested coffee-shop aesthetic by showing a large image beside a dark content card with an Explore Us button. -->
-        <section class="story-preview section-padding" aria-labelledby="story-title">
-            <!-- STORY IMAGE: replace the online image in css/style.css under .story-image with a local cafe or coffee-bean image later. -->
-            <div class="story-image"></div>
+                <!-- Login errors are displayed here by auth.js. -->
+                <p class="error-message" id="loginMessage"></p>
 
-            <div class="story-card">
-                <p class="eyebrow dark">About Us</p>
-                <h2 id="story-title">More Than Just a Coffee</h2>
-                <p>
-                    At Willow Brew, we believe coffee is more than a drink.
-                    It is an experience shaped by good beans, calm spaces, and thoughtful service.
-                </p>
+                <button type="submit" class="dark-button full-button">
+                    Login
+                </button>
+            </form>
 
-                <ul class="story-list">
-                    <li>Sustainably sourced beans</li>
-                    <li>Ethically traded</li>
-                    <li>Freshly roasted</li>
-                    <li>Barista crafted</li>
-                </ul>
+            <!-- The successful welcome message is displayed here. -->
+            <p class="form-success" id="loginGreeting"></p>
 
-                <a href="about.html" class="text-button">Explore Us</a>
-            </div>
-        </section>
-
-        <!-- This product preview section displays two rows of products with three product cards per row, while the full searchable catalogue is placed on catalogue.html. -->
-        <section class="products-preview section-padding" aria-labelledby="products-title">
-            <div class="section-top">
-                <a href="catalogue.html" class="small-link">See all our products</a>
-                <p class="eyebrow dark">Our Signature</p>
-                <h2 id="products-title">Popular Picks</h2>
-            </div>
-
-            <div class="product-grid preview-grid">
-                <article class="product-card">
-                    <!-- PRODUCT IMAGE 1: Iced Caramel Latte preview card. -->
-                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=80" alt="Iced caramel latte in a glass">
-                    <h3>Iced Caramel Latte</h3>
-                    <p>Layered milk, espresso, and caramel.</p>
-                    <div class="product-bottom">
-                        <span>RM 13.90</span>
-                        <a href="catalogue.html">Order</a>
-                    </div>
-                </article>
-
-                <article class="product-card">
-                    <!-- PRODUCT IMAGE 2: Cappuccino preview card. -->
-                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=80" alt="Cappuccino coffee in a cup">
-                    <h3>Cappuccino</h3>
-                    <p>Classic espresso with rich foam.</p>
-                    <div class="product-bottom">
-                        <span>RM 12.90</span>
-                        <a href="catalogue.html">Order</a>
-                    </div>
-                </article>
-
-                <article class="product-card">
-                    <!-- PRODUCT IMAGE 3: Mocha preview card. -->
-                    <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=900&q=80" alt="Mocha coffee with chocolate topping">
-                    <h3>Mocha</h3>
-                    <p>Espresso with chocolate and steamed milk.</p>
-                    <div class="product-bottom">
-                        <span>RM 14.90</span>
-                        <a href="catalogue.html">Order</a>
-                    </div>
-                </article>
-
-                <article class="product-card">
-                    <!-- PRODUCT IMAGE 4: Espresso preview card. -->
-                    <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=900&q=80" alt="Small cup of espresso coffee">
-                    <h3>Espresso</h3>
-                    <p>Strong, bold, and pure coffee taste.</p>
-                    <div class="product-bottom">
-                        <span>RM 8.90</span>
-                        <a href="catalogue.html">Order</a>
-                    </div>
-                </article>
-
-                <article class="product-card">
-                    <!-- PRODUCT IMAGE 5: Matcha Latte preview card. -->
-                    <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=900&q=80" alt="Iced matcha latte in a glass">
-                    <h3>Matcha Latte</h3>
-                    <p>Earthy matcha with creamy milk.</p>
-                    <div class="product-bottom">
-                        <span>RM 14.50</span>
-                        <a href="catalogue.html">Order</a>
-                    </div>
-                </article>
-
-                <article class="product-card">
-                    <!-- PRODUCT IMAGE 6: Seasonal pastry preview card. -->
-                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="Freshly baked pastry on a table">
-                    <h3>Seasonal Pastry</h3>
-                    <p>Freshly baked pastry of the day.</p>
-                    <div class="product-bottom">
-                        <span>RM 10.90</span>
-                        <a href="catalogue.html">Order</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- This team preview section replaces the old carousel with three simple clickable image boxes, so no JavaScript is needed for this part. -->
-        <section class="team-preview section-padding" aria-labelledby="team-title">
-            <div class="section-top centered">
-                <p class="eyebrow dark">Meet the people</p>
-                <h2 id="team-title">The Willow Brew Team</h2>
-                <p class="section-description">
-                    Click a team image to view the member's individual portfolio page.
-                </p>
-            </div>
-
-            <div class="team-simple-grid">
-                <a href="portfolio_asriel.html" class="team-image-card">
-                    <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=900&q=80" alt="Team member representing Asriel">
-                    <div class="team-image-info">
-                        <h3>Asriel Looi</h3>
-                        <p>Frontend Structure & Design Lead</p>
-                    </div>
-                </a>
-
-                <a href="portfolio_ash.html" class="team-image-card">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Team member representing Member Two">
-                    <div class="team-image-info">
-                        <h3>Ash</h3>
-                        <p>JavaScript Feature Developer</p>
-                    </div>
-                </a>
-
-                <a href="portfolio_huiyan.html" class="team-image-card">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80" alt="Team member representing Member Three">
-                    <div class="team-image-info">
-                        <h3>Hui Yan</h3>
-                        <p>Html</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- This visit section gives basic location and operating-hour information so the homepage feels complete like a real coffee shop website. -->
-        <section class="visit-section section-padding" id="visit" aria-labelledby="visit-title">
-            <h2 id="visit-title">Stay in the Loop</h2>
-            <p>Visit Willow Brew at Lot G-08, City Walk, Kuala Lumpur. Open daily from 8.00 AM to 10.00 PM.</p>
-        </section>
+            <p>
+                New member?
+                <a href="register.html">Create an account</a>.
+            </p>
+        </div>
+    </section>
     </main>
 
     <!-- This footer gives the website a finished commercial look and provides quick links, customer care links, and contact details similar to a premium coffee brand footer. -->
