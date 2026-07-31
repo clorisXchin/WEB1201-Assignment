@@ -271,4 +271,4 @@ function checkLogin() {
 /* Only add the login event on a page containing loginForm. */
 if (loginForm !== null) {
     loginForm.onsubmit = checkLogin;
-
+}
