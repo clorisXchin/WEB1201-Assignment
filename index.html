@@ -37,8 +37,13 @@
                 <a href="login.html" class="order-link" id="loginLink">Login</a>
 
                 <!-- This button changes the website between the original classic theme and the darker brew theme, with the choice saved in localStorage. -->
-                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch website theme">
-                    Brew Theme
+                <button class="theme-toggle"
+                 id="themeToggle"
+                 type="button"
+                 onclick="toggleTheme()"
+                 aria-label="Switch website theme"
+                 aria-pressed="false">
+                 Dark Theme
                 </button>
             </nav>
         </div>

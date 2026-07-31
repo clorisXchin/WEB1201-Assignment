@@ -37,8 +37,14 @@
                 <a href="login.html" class="order-link" id="loginLink">Login</a>
 
                 <!-- This button changes the website between the original classic theme and the darker brew theme, with the choice saved in localStorage. -->
-                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch website theme">
-                    Brew Theme
+                <button 
+                    class="theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    onclick="toggleTheme()"
+                    aria-label="Switch website theme"
+                    aria-pressed="false">
+                    Dark Theme
                 </button>
             </nav>
         </div>
@@ -86,11 +92,104 @@
             </div>
         </section>
 
-        <!-- This catalogue grid is empty in the HTML because catalogue.js renders the product cards from a product array. -->
         <section class="catalogue-list section-padding" aria-labelledby="catalogue-title">
             <h2 id="catalogue-title">All Products</h2>
-            <div class="product-grid" id="catalogueGrid"></div>
-            <p class="empty-message" id="emptyMessage">No products found. Try another keyword or category.</p>
+
+            <div class="product-grid" id="catalogueGrid">
+                <article class="product-card catalogue-card"
+                    data-name="Iced Caramel Latte" data-category="coffee"
+                    data-price="13.90" data-order="1">
+                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=80"
+                        alt="Iced caramel latte in a glass">
+                    <h3>Iced Caramel Latte</h3>
+                    <p>Espresso, milk, ice, and caramel syrup.</p>
+                    <div class="product-bottom"><span>RM 13.90</span><a href="#">Order</a></div>
+                </article>
+
+                <article class="product-card catalogue-card"
+                    data-name="Cappuccino" data-category="coffee"
+                    data-price="12.90" data-order="2">
+                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=80"
+                        alt="Cappuccino in a coffee cup">
+                    <h3>Cappuccino</h3>
+                    <p>Espresso with steamed milk and thick foam.</p>
+                    <div class="product-bottom"><span>RM 12.90</span><a href="#">Order</a></div>
+                </article>
+
+                <article class="product-card catalogue-card"
+                    data-name="Mocha" data-category="coffee"
+                    data-price="14.90" data-order="3">
+                    <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=900&q=80"
+                        alt="Mocha coffee with chocolate">
+                    <h3>Mocha</h3>
+                    <p>Espresso mixed with chocolate and milk.</p>
+                    <div class="product-bottom"><span>RM 14.90</span><a href="#">Order</a></div>
+                </article>
+
+                <article class="product-card catalogue-card"
+                    data-name="Espresso" data-category="coffee"
+                    data-price="8.90" data-order="4">
+                    <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=900&q=80"
+                        alt="Small cup of espresso">
+                    <h3>Espresso</h3>
+                    <p>A small cup with a strong and bold coffee taste.</p>
+                    <div class="product-bottom"><span>RM 8.90</span><a href="#">Order</a></div>
+                </article>
+
+                <article class="product-card catalogue-card"
+                    data-name="Cold Brew" data-category="coffee"
+                    data-price="13.50" data-order="5">
+                    <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=900&q=80"
+                        alt="Cold brew coffee with ice">
+                    <h3>Cold Brew</h3>
+                    <p>Slow-brewed coffee served cold over ice.</p>
+                    <div class="product-bottom"><span>RM 13.50</span><a href="#">Order</a></div>
+                </article>
+
+                <article class="product-card catalogue-card"
+                    data-name="Matcha Latte" data-category="non-coffee"
+                    data-price="14.50" data-order="6">
+                    <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=900&q=80"
+                        alt="Iced matcha latte">
+                    <h3>Matcha Latte</h3>
+                    <p>Japanese matcha mixed with creamy milk.</p>
+                    <div class="product-bottom"><span>RM 14.50</span><a href="#">Order</a></div>
+                </article>
+
+                <article class="product-card catalogue-card"
+                    data-name="Chocolate Milk" data-category="non-coffee"
+                    data-price="11.90" data-order="7">
+                    <img src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=900&q=80"
+                        alt="Chocolate drink in a glass">
+                    <h3>Chocolate Milk</h3>
+                    <p>A rich chocolate drink with fresh milk.</p>
+                    <div class="product-bottom"><span>RM 11.90</span><a href="#">Order</a></div>
+                </article>
+
+                <article class="product-card catalogue-card"
+                    data-name="Butter Croissant" data-category="pastry"
+                    data-price="9.90" data-order="8">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=80"
+                        alt="Fresh butter croissant">
+                    <h3>Butter Croissant</h3>
+                    <p>A flaky pastry baked with butter.</p>
+                    <div class="product-bottom"><span>RM 9.90</span><a href="#">Order</a></div>
+                </article>
+
+                <article class="product-card catalogue-card"
+                    data-name="Chocolate Muffin" data-category="pastry"
+                    data-price="10.50" data-order="9">
+                    <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=900&q=80"
+                        alt="Chocolate muffin">
+                    <h3>Chocolate Muffin</h3>
+                    <p>A soft muffin with chocolate pieces.</p>
+                    <div class="product-bottom"><span>RM 10.50</span><a href="#">Order</a></div>
+                </article>
+            </div>
+
+            <p class="empty-message" id="emptyMessage">
+                No products found. Try another keyword or category.
+            </p>
         </section>
     </main>
 
