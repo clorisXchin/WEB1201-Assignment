@@ -3,16 +3,16 @@ function applySavedTheme() {
     var savedTheme = localStorage.getItem("willowTheme");
     var themeButton = document.getElementById("themeToggle");
 
-    if (savedTheme === "dark") {
-        document.body.className = "dark-theme";
+    if (savedTheme === "light") {
+        document.body.className = "light-theme";
         if (themeButton !== null) {
-            themeButton.textContent = "Light Theme";
+            themeButton.textContent = "Dark Theme";
             themeButton.setAttribute("aria-pressed", "true");
         }
     } else {
         document.body.className = "";
         if (themeButton !== null) {
-            themeButton.textContent = "Dark Theme";
+            themeButton.textContent = "Light Theme";
             themeButton.setAttribute("aria-pressed", "false");
         }
     }
@@ -22,17 +22,22 @@ function applySavedTheme() {
 function toggleTheme() {
     var themeButton = document.getElementById("themeToggle");
 
-    if (document.body.className === "dark-theme") {
+    if (document.body.className === "light-theme") {
         document.body.className = "";
-        localStorage.setItem("willowTheme", "light");
-        themeButton.textContent = "Dark Theme";
-        themeButton.setAttribute("aria-pressed", "false");
-    } else {
-        document.body.className = "dark-theme";
         localStorage.setItem("willowTheme", "dark");
         themeButton.textContent = "Light Theme";
+        themeButton.setAttribute("aria-pressed", "false");
+    } else {
+        document.body.className = "light-theme";
+        localStorage.setItem("willowTheme", "light");
+        themeButton.textContent = "Dark Theme";
         themeButton.setAttribute("aria-pressed", "true");
     }
+}
+
+var themeButton = document.getElementById("themeToggle");
+if (themeButton !== null) {
+    themeButton.onclick = toggleTheme;
 }
 
 /* This statement applies the saved theme after the page elements are available because the script is placed at the end of the HTML body. */
