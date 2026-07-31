@@ -145,20 +145,20 @@ function showRegistrationStep() {
     progressSteps[currentStep].className = "progress-step active";
     /* Hide Back during Step 1 because there is no earlier step. */
     if (currentStep === 0) {
-        backButton.style.display = "none";
+        backButton.classList.add("hidden");
     } else {
-        backButton.style.display = "inline-block";
+        backButton.classList.remove("hidden");
     }
     /*
         formSteps.length is 3, so the final position is 3 - 1 = 2.
         On the final step, hide Next and show Create Account.
     */
     if (currentStep === formSteps.length - 1) {
-        nextButton.style.display = "none";
-        registerButton.style.display = "inline-block";
+        nextButton.classList.add("hidden");
+        registerButton.classList.remove("hidden");
     } else {
-        nextButton.style.display = "inline-block";
-        registerButton.style.display = "none";
+        nextButton.classList.remove("hidden");
+        registerButton.classList.add("hidden");
     }
 }
 

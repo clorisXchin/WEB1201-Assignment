@@ -93,7 +93,7 @@ function filterCatalogue() {
         if (keywordMatches === true && categoryMatches === true) {
 
             /* Show the matching product using its normal CSS display rule. */
-            cards[i].style.display = "";
+            cards[i].classList.remove("hidden");
 
             /* Increase the number of visible products by one. */
             visibleProducts++;
@@ -101,15 +101,15 @@ function filterCatalogue() {
         } else {
 
             /* Hide the product when it does not match. */
-            cards[i].style.display = "none";
+            cards[i].classList.add("hidden");
         }
     }
 
     /* Show a message if no products remain visible. */
     if (visibleProducts === 0) {
-        emptyMessage.style.display = "block";
+        emptyMessage.classList.add("visible");
     } else {
-        emptyMessage.style.display = "none";
+        emptyMessage.classList.remove("visible");
     }
 }
 
