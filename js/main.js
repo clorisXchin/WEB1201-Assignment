@@ -18,10 +18,20 @@ function toggleNavigation() {
 function updateLoginLink() {
     var loginLink = document.getElementById("loginLink");
     var currentUser = localStorage.getItem("willowCurrentUser");
+    var loggedIn = localStorage.getItem("willowLoggedIn");
 
-    if (loginLink !== null && currentUser !== null && currentUser !== "") {
+    if (
+    loginLink !== null &&
+    currentUser !== null &&
+    currentUser !== "" &&
+    loggedIn === "true"
+    ) {
         loginLink.textContent = "Hi, " + currentUser;
-        loginLink.setAttribute("aria-label", "Open member page for " + currentUser);
+
+        loginLink.setAttribute(
+        "aria-label",
+        "Open member page for " + currentUser
+        );
     }
 }
 

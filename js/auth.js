@@ -261,8 +261,16 @@ function checkLogin() {
         loginMessage.innerHTML = "The email or password is incorrect.";
     } else {
         /* All checks passed, so display the saved name. */
-        loginGreeting.innerHTML = "Welcome back, " + savedName + "!";
-        loginForm.reset();
+         /* Save the successful login status. */
+    localStorage.setItem("willowLoggedIn", "true");
+    /* Save the name of the currently logged-in user. */
+    localStorage.setItem("willowCurrentUser", savedName);
+    /* Show the greeting on the login page. */
+    loginGreeting.innerHTML = "Welcome back, " + savedName + "!";
+    /* Change Login to Hi, name in the navigation. */
+    updateLoginLink();
+    /* Clear the login fields. */
+    loginForm.reset();
     }
     /* Prevent the form from reloading the page. */
     return false;

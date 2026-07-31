@@ -1,61 +1,45 @@
 /*
     CATALOGUE.JS
     This file is used for the product catalogue.
-
     The product cards are already inside inside catalogue.html.
     JavaScript just searches, filters and rearranges those cards.
 */
-
 /* Get the search input. */
 var searchBox = document.getElementById("productSearch");
-
 /* Get the category dropdown. */
 var categoryBox = document.getElementById("categoryFilter");
-
 /* Get the sorting dropdown. */
 var sortBox = document.getElementById("sortProducts");
-
 /* Get the container that holds all catalogue cards. */
 var catalogueGrid = document.getElementById("catalogueGrid");
-
 /* Get the message shown if no products match. */
 var emptyMessage = document.getElementById("emptyMessage");
 
-
 /*
-    Search and filter the catalogue.
+    Search and filter the catalogue. 
     Every product card is checked one at a time inside a for loop.
 */
 function filterCatalogue() {
-
     /* Get every element with class="catalogue-card". */
     var cards = document.getElementsByClassName("catalogue-card");
-
     /*
-        Get the text entered by the user.
-        toLowerCase makes the search ignore capital letters.
+        Get the text entered by the user. toLowerCase makes the search ignore capital letters.
     */
     var keyword = searchBox.value.toLowerCase();
-
     /* Get the selected category. */
     var selectedCategory = categoryBox.value;
-
     /* Count how many products remain visible. */
     var visibleProducts = 0;
-
     /* Make the loop counter. */
     var i;
 
     /* Repeat once for every product card. */
     for (i = 0; i < cards.length; i++) {
-
         /*
-            Get the product name from data-name.
-            Example: data-name="Cappuccino"
+            Get the product name from data-name.  Example: data-name="Cappuccino"
         */
         var productName =
             cards[i].getAttribute("data-name").toLowerCase();
-
         /* Get the product category from data-category. */
         var productCategory =
             cards[i].getAttribute("data-category");
@@ -66,12 +50,9 @@ function filterCatalogue() {
         */
         var productDescription =
             cards[i].getElementsByTagName("p")[0].textContent.toLowerCase();
-
         /*
             indexOf returns -1 when the keyword is not found.
-            A value of 0 or more means it was found.
-
-            The || operator means OR, so the keyword can match
+            A value of 0 or more means it was found. The || operator means OR, so the keyword can match
             either the product name or its description.
         */
         var keywordMatches =
@@ -85,21 +66,16 @@ function filterCatalogue() {
         var categoryMatches =
             selectedCategory === "all" ||
             productCategory === selectedCategory;
-
         /*
             The && operator means AND.
             Both the keyword and category must match.
         */
         if (keywordMatches === true && categoryMatches === true) {
-
             /* Show the matching product using its normal CSS display rule. */
             cards[i].classList.remove("hidden");
-
             /* Increase the number of visible products by one. */
             visibleProducts++;
-
         } else {
-
             /* Hide the product when it does not match. */
             cards[i].classList.add("hidden");
         }
@@ -119,30 +95,22 @@ function filterCatalogue() {
     This uses a basic bubble sort with two for loops.
 */
 function sortCatalogue() {
-
     /* Get all catalogue cards again. */
     var cards = document.getElementsByClassName("catalogue-card");
-
     /* Make an empty array for the cards. */
     var cardArray = [];
-
     /* Get the selected sorting option. */
     var selectedSort = sortBox.value;
-
     /* Two counters are needed because one loop is inside another loop. */
     var i;
     var j;
-
     /* Store the values of two neighbouring cards while comparing them. */
     var leftValue;
     var rightValue;
-
     /* Remember whether the two cards need to change places. */
     var outOfOrder;
-
     /* Temporarily store one card while swapping two cards. */
     var temporaryCard;
-
     /*
         Copy every card into a normal array.
         push adds one item to the end of the array.
@@ -153,59 +121,44 @@ function sortCatalogue() {
 
     /* The outer loop controls the number of sorting rounds. */
     for (i = 0; i < cardArray.length - 1; i++) {
-
         /* The inner loop compares neighbouring cards. */
         for (j = 0; j < cardArray.length - i - 1; j++) {
-
             /* Begin by assuming the cards are already in the correct order. */
             outOfOrder = false;
-
             /* Sort alphabetically when Name A-Z is selected. */
             if (selectedSort === "name-az") {
-
                 leftValue =
                     cardArray[j].getAttribute("data-name").toLowerCase();
 
                 rightValue =
                     cardArray[j + 1].getAttribute("data-name").toLowerCase();
-
                 /* Swap when the left name comes after the right name. */
                 if (leftValue > rightValue) {
                     outOfOrder = true;
                 }
-
             } else if (selectedSort === "price-low") {
-
                 /*
                     HTML attribute values are text.
                     parseFloat converts the prices into decimal numbers.
                 */
                 leftValue =
                     parseFloat(cardArray[j].getAttribute("data-price"));
-
                 rightValue =
                     parseFloat(cardArray[j + 1].getAttribute("data-price"));
-
                 /* Swap when the left price is higher. */
                 if (leftValue > rightValue) {
                     outOfOrder = true;
                 }
-
             } else if (selectedSort === "price-high") {
-
                 leftValue =
                     parseFloat(cardArray[j].getAttribute("data-price"));
-
                 rightValue =
                     parseFloat(cardArray[j + 1].getAttribute("data-price"));
-
                 /* Swap when the left price is lower. */
                 if (leftValue < rightValue) {
                     outOfOrder = true;
                 }
-
             } else {
-
                 /*
                     Restore the original order using data-order.
                     parseInt converts the values into whole numbers.
@@ -224,13 +177,10 @@ function sortCatalogue() {
 
             /* Swap the cards only when they are in the wrong order. */
             if (outOfOrder === true) {
-
                 /* Save the left card temporarily. */
                 temporaryCard = cardArray[j];
-
                 /* Move the right card into the left position. */
                 cardArray[j] = cardArray[j + 1];
-
                 /* Move the saved card into the right position. */
                 cardArray[j + 1] = temporaryCard;
             }
@@ -244,7 +194,6 @@ function sortCatalogue() {
     for (i = 0; i < cardArray.length; i++) {
         catalogueGrid.appendChild(cardArray[i]);
     }
-
     /* Apply the current search and category filter again after sorting. */
     filterCatalogue();
 }
@@ -258,16 +207,12 @@ if (
     catalogueGrid !== null &&
     emptyMessage !== null
 ) {
-
     /* Search whenever the user releases a key while typing. */
     searchBox.onkeyup = filterCatalogue;
-
     /* Filter when the category dropdown changes. */
     categoryBox.onchange = filterCatalogue;
-
     /* Sort when the sorting dropdown changes. */
     sortBox.onchange = sortCatalogue;
-
     /* Run once when the page first loads. */
     filterCatalogue();
 }
