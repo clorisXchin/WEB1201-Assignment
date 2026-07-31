@@ -1,0 +1,205 @@
+/*=========================================================
+  Willow Brew's Responsive Stylesheet
+  Breakpoints: Desktop (defult, 1025px+)
+               Tablet (768-1024px)
+               Mobile (below 768px)
+  =========================================================*/
+
+
+/* ----------------------------
+            Tablet
+   ----------------------------*/
+
+
+@media (max-width: 1024px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+
+    .section-padding {
+        padding: 4rem 1.5rem;
+    }
+
+    .story-preview,
+    .about-story{
+        grid-template-columns: 1fr;
+    }
+
+    .story-image,
+    .about-image {
+        min-height: 300px;
+    }
+
+    .product-grid,
+    .team-simple-grid,
+    .team-grid,
+    .value-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .review-section {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+
+/* ----------------------------
+             Mobile
+   ----------------------------*/
+
+@media (max-width: 767px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+
+    .section-padding {
+        padding: 3rem 1.2rem;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background-color: var(--bg);
+        border-bottom: 1px solid var(--border-soft);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 0 1.5rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--transition-med);
+    }
+
+    .main-nav.open {
+        max-height: 500px;
+        padding: 1rem 1.5rem 1.5rem;
+    }
+
+    .main-nav a,
+    .main-nav button {
+        width: 100%;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid var(--border-soft);
+    }
+
+    .main-nav a:last-of-type {
+        border-bottom: none;
+    }
+
+    .order-link {
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+    .theme-toggle {
+        margin-top: 0.8rem;
+        width: 100%;
+    }
+
+    /* -- Hero -- */
+    .hero-section {
+        min-height: 560px;
+        text-align: center;
+    }
+
+    .hero-content h1,
+    .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions,
+    .hero-badges {
+        justify-content: center;
+    }
+
+    /* -- Grids collapse to single column -- */
+    .product-grid,
+    .team-simple-grid,
+    .team-grid,
+    .value-grid,
+    .story-list,
+    .footer-columns,
+    .tool-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-card {
+        padding: 2rem 1.6rem;
+    }
+
+    /* -- Auth card -- */
+    .auth-card {
+        padding: 2rem 1.4rem;
+    }
+
+    .progress-step {
+        font-size: 0.7rem;
+    }
+
+    .form-buttons {
+        flex-wrap: wrap;
+    }
+
+    .form-buttons button {
+        flex: 1 1 100%;
+    }
+
+    /* -- Footer -- */
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .small-link {
+        position: static;
+        display: inline-block;
+        margin-bottom: 0.6rem;
+    }
+}  
+
+
+/* ----------------------------
+        Small Mobile
+   ----------------------------*/
+
+@media (max-width: 420px) {
+    .hero-badges {
+        flex-direction: column;
+        gap: 0.6rem;
+        align-items: center;
+    }
+ 
+    .review-form-card,
+    .review-list-card {
+        padding: 1.6rem;
+    }
+}
+
+
+
+/* ----------------------------
+        Reduced Motion
+   ----------------------------*/
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
+}
