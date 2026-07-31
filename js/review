@@ -92,7 +92,7 @@ function showReview(name, text, rating) {
     }
 
     /* Put the stars and review text into their paragraphs. */
-    reviewStars.className = "review-stars";
+    reviewStars.className = "review-item-stars";
     reviewStars.textContent = starText;
     reviewParagraph.className = "review-item-text";
     reviewParagraph.textContent = text;
