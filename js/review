@@ -77,6 +77,8 @@ function showReview(name, text, rating) {
     /* Give the new article a CSS class. */
     reviewCard.className = "review-item";
 
+    reviewHeading.className = "review-item-name";
+
     /* Put the reviewer's name in the heading. */
     reviewHeading.textContent = name;
 
@@ -92,6 +94,7 @@ function showReview(name, text, rating) {
     /* Put the stars and review text into their paragraphs. */
     reviewStars.className = "review-stars";
     reviewStars.textContent = starText;
+    reviewParagraph.className = "review-item-text";
     reviewParagraph.textContent = text;
 
     /* Build the review card by placing the elements inside the article. */
