@@ -1,13 +1,10 @@
 /* =============================================================
-   ASH — PORTFOLIO STYLESHEET
-   Theme: Glassmorphism / red-velvet-black
-   Vanilla CSS only. Separate from the main site stylesheet —
-   this page is individually designed and graded (I1/I2).
+   KAASHVEENA — PORTFOLIO STYLESHEET
    ============================================================= */
 
-/* -----------------------------------------------------------
-   1. DESIGN TOKENS (CSS custom properties — required for I2)
-   ----------------------------------------------------------- */
+/* -----------------
+   1. DESIGN TOKENS 
+   ----------------- */
 :root {
     /* Base surfaces */
     --black: #080405;
@@ -19,7 +16,7 @@
     --glass-strong: rgba(255, 255, 255, 0.08);
     --glass-border: rgba(230, 80, 100, 0.22);
 
-    /* Accent — crimson / velvet red family */
+    /* Accent — crimson / velvet */
     --crimson: #C8203D;
     --crimson-bright: #FF4D6D;
     --crimson-deep: #7A0F22;
@@ -45,9 +42,9 @@
     --transition-slow: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* -----------------------------------------------------------
+/* -----------------
    2. RESET & BASE
-   ----------------------------------------------------------- */
+   ----------------- */
 * {
     margin: 0;
     padding: 0;
@@ -115,12 +112,9 @@ a:focus-visible, button:focus-visible {
     outline-offset: 3px;
 }
 
-/* -----------------------------------------------------------
-   3. SIGNATURE ELEMENT — glass shard dividers
-   Angled, clipped glass panels between sections, meant to read
-   as cut glass catching red light. This is the one deliberately
-   bold, memorable element; everything else stays restrained.
-   ----------------------------------------------------------- */
+/* ----------------------
+   3. SIGNATURE ELEMENT 
+   ---------------------- */
 .shard-divider {
     height: 90px;
     background: linear-gradient(100deg, transparent, rgba(200, 32, 61, 0.35), transparent);
@@ -132,9 +126,9 @@ a:focus-visible, button:focus-visible {
     clip-path: polygon(0 35%, 100% 0, 100% 65%, 0 100%);
 }
 
-/* -----------------------------------------------------------
+/* -------------------
    4. GLASS SURFACES
-   ----------------------------------------------------------- */
+   ------------------- */
 .glass-card,
 .glass-shard {
     background: var(--glass);
@@ -146,9 +140,9 @@ a:focus-visible, button:focus-visible {
     transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
-/* -----------------------------------------------------------
+/* ------------
    5. TOP BAR
-   ----------------------------------------------------------- */
+   ------------ */
 .ash-header {
     display: flex;
     align-items: center;
@@ -170,9 +164,9 @@ a:focus-visible, button:focus-visible {
 
 .header-mark { color: var(--text-faint); letter-spacing: 0.05em; }
 
-/* -----------------------------------------------------------
+/* ----------
    6. HERO
-   ----------------------------------------------------------- */
+   ---------- */
 .hero {
     position: relative;
     max-width: var(--container-width);
@@ -218,9 +212,9 @@ a:focus-visible, button:focus-visible {
     margin-top: 2.2rem;
 }
 
-/* -----------------------------------------------------------
+/* ------------
    7. BUTTONS
-   ----------------------------------------------------------- */
+   ------------ */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -263,9 +257,9 @@ a:focus-visible, button:focus-visible {
     min-height: 1.2rem;
 }
 
-/* -----------------------------------------------------------
-   8. ABOUT SECTION — Flexbox layout
-   ----------------------------------------------------------- */
+/* -----------------
+   8. ABOUT SECTION 
+   ----------------- */
 .about-section {
     display: flex;
     gap: 3rem;
@@ -300,9 +294,9 @@ a:focus-visible, button:focus-visible {
 
 .bio-paragraph { margin-top: 1rem; max-width: 560px; }
 
-/* -----------------------------------------------------------
-   9. EDUCATION — timeline (flexbox column)
-   ----------------------------------------------------------- */
+/* --------------
+   9. EDUCATION
+   -------------- */
 .education-section,
 .skills-section,
 .projects-section,
@@ -352,9 +346,9 @@ a:focus-visible, button:focus-visible {
 
 .timeline-detail { margin-top: 0.6rem; }
 
-/* -----------------------------------------------------------
-   10. SKILLS — CSS Grid + CSS-only progress bars
-   ----------------------------------------------------------- */
+/* ------------
+   10. SKILLS 
+   ------------ */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -385,10 +379,7 @@ a:focus-visible, button:focus-visible {
     overflow: hidden;
 }
 
-/* The bar's final width comes from the --level custom property set
-   inline on each .skill-fill in the HTML (style="--level: 85%"). The
-   keyframe animates it growing in from 0 on page load. Pure CSS —
-   no JavaScript involved in drawing or animating these bars. */
+
 .skill-fill {
     height: 100%;
     width: var(--level, 0%);
@@ -404,9 +395,9 @@ a:focus-visible, button:focus-visible {
     to { width: var(--level, 0%); }
 }
 
-/* -----------------------------------------------------------
-   11. PROJECTS — CSS Grid
-   ----------------------------------------------------------- */
+/* -------------
+   11. PROJECTS 
+   ------------- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -446,9 +437,9 @@ a:focus-visible, button:focus-visible {
     opacity: 0.7;
 }
 
-/* -----------------------------------------------------------
+/* ------------------
    12. ACHIEVEMENTS
-   ----------------------------------------------------------- */
+   ------------------ */
 .achievements-list {
     display: flex;
     flex-direction: column;
@@ -460,9 +451,9 @@ a:focus-visible, button:focus-visible {
 .achievements-list h3 { font-size: 1.1rem; }
 .achievements-list p:last-child { margin-top: 0.5rem; }
 
-/* -----------------------------------------------------------
+/* ------------
    13. FOOTER
-   ----------------------------------------------------------- */
+   ------------ */
 .ash-footer {
     max-width: var(--container-width);
     margin: 2rem auto 0;
@@ -496,9 +487,9 @@ a:focus-visible, button:focus-visible {
 .footer-note a { color: var(--text-faint); text-decoration: underline; }
 .footer-note a:hover { color: var(--crimson-bright); }
 
-/* -----------------------------------------------------------
+/* -----------------
    14. ANIMATIONS
-   ----------------------------------------------------------- */
+   ----------------- */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
@@ -524,9 +515,9 @@ a:focus-visible, button:focus-visible {
     }
 }
 
-/* -----------------------------------------------------------
-   15. RESPONSIVE (mobile-first override at narrow widths)
-   ----------------------------------------------------------- */
+/* ----------------
+   15. RESPONSIVE 
+   ---------------- */
 @media (max-width: 768px) {
     h1 { font-size: 2.6rem; }
     h2 { font-size: 1.7rem; }

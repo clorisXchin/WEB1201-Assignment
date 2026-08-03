@@ -1,14 +1,7 @@
-/* =============================================================
-   ASH — PORTFOLIO PRINT STYLESHEET
-   Only applies when printing (media="print" in the HTML link tag).
-   The glassmorphism/dark theme looks great on screen but would waste
-   ink and be unreadable on paper, so this strips it down to a plain,
-   professional black-on-white layout instead.
-   ============================================================= */
+/* ==================================
+   KAASHVEENA — PORTFOLIO PRINT STYLESHEET
+   ================================== */
 
-/* Hide anything that only makes sense on screen: navigation, buttons,
-   decorative glow/shard elements, and the footer's print button itself
-   (printing a "print this page" button is pointless on paper). */
 .ash-header,
 .hero-actions,
 .hero-glow,
@@ -18,9 +11,6 @@
     display: none !important;
 }
 
-/* Reset the page to plain white with black text — no backgrounds,
-   no blur, no glow, no box-shadow. Print is a different medium and
-   should look like a resume, not a screenshot of a webpage. */
 body {
     background: #FFFFFF !important;
     background-image: none !important;
@@ -41,10 +31,7 @@ a {
     text-decoration: underline;
 }
 
-/* Strip every glass surface down to a simple bordered box — no blur,
-   no translucency, no shadow, since none of those render meaningfully
-   on paper and backdrop-filter can print as solid black in some
-   browsers. */
+
 .glass-card,
 .glass-shard,
 .hero {
@@ -56,8 +43,6 @@ a {
     border-radius: 4px;
 }
 
-/* Skill bars: keep them, but as plain grey/black bars instead of a
-   glowing crimson gradient. */
 .skill-track {
     background: #EEEEEE !important;
     border: 1px solid #999999 !important;
@@ -75,16 +60,12 @@ a {
     color: #444444 !important;
 }
 
-/* Turn off every animation/transition for print — motion has no
-   meaning on a static page and can cause elements to print mid-
-   transition in some browsers. */
+
 *, *::before, *::after {
     animation: none !important;
     transition: none !important;
 }
 
-/* Let sections flow as plain stacked content instead of a floating
-   card layout, and avoid splitting a card across a page break. */
 .about-section {
     flex-direction: row;
 }
@@ -95,7 +76,6 @@ a {
     break-inside: avoid;
 }
 
-/* Photo placeholder shouldn't print as a big empty dashed circle. */
 .photo-placeholder {
     border: 1px solid #999999 !important;
     background: none !important;
