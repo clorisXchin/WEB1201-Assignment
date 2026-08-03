@@ -1,0 +1,545 @@
+/* =============================================================
+   ASH — PORTFOLIO STYLESHEET
+   Theme: Glassmorphism / red-velvet-black
+   Vanilla CSS only. Separate from the main site stylesheet —
+   this page is individually designed and graded (I1/I2).
+   ============================================================= */
+
+/* -----------------------------------------------------------
+   1. DESIGN TOKENS (CSS custom properties — required for I2)
+   ----------------------------------------------------------- */
+:root {
+    /* Base surfaces */
+    --black: #080405;
+    --velvet: #170810;
+    --velvet-deep: #220c14;
+
+    /* Glass panels */
+    --glass: rgba(255, 255, 255, 0.045);
+    --glass-strong: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(230, 80, 100, 0.22);
+
+    /* Accent — crimson / velvet red family */
+    --crimson: #C8203D;
+    --crimson-bright: #FF4D6D;
+    --crimson-deep: #7A0F22;
+
+    /* Text */
+    --text-main: #F5E7E9;
+    --text-muted: #B98A93;
+    --text-faint: #8A6169;
+
+    /* Type */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+    /* Layout */
+    --radius-glass: 20px;
+    --radius-sm: 10px;
+    --blur: 18px;
+    --container-width: 900px;
+
+    /* Motion */
+    --transition: 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --transition-slow: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* -----------------------------------------------------------
+   2. RESET & BASE
+   ----------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    line-height: 1.7;
+    background-color: var(--black);
+    background-image:
+        radial-gradient(ellipse 600px 500px at 15% 0%, rgba(200, 32, 61, 0.22), transparent 60%),
+        radial-gradient(ellipse 700px 600px at 90% 30%, rgba(122, 15, 34, 0.25), transparent 60%),
+        radial-gradient(ellipse 800px 500px at 20% 100%, rgba(200, 32, 61, 0.15), transparent 60%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: #FFF3F1;
+    line-height: 1.15;
+}
+
+h1 { font-size: 4rem; font-style: italic; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.3rem; font-weight: 700; }
+
+p { color: var(--text-muted); }
+
+a {
+    color: var(--crimson-bright);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover { color: #FFB3BE; }
+
+ul { list-style: none; }
+
+button {
+    font-family: var(--font-body);
+    cursor: pointer;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 1rem;
+    background: var(--crimson);
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border-radius: var(--radius-sm);
+    z-index: 999;
+    transition: top var(--transition);
+}
+.skip-link:focus { top: 1rem; }
+
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--crimson-bright);
+    outline-offset: 3px;
+}
+
+/* -----------------------------------------------------------
+   3. SIGNATURE ELEMENT — glass shard dividers
+   Angled, clipped glass panels between sections, meant to read
+   as cut glass catching red light. This is the one deliberately
+   bold, memorable element; everything else stays restrained.
+   ----------------------------------------------------------- */
+.shard-divider {
+    height: 90px;
+    background: linear-gradient(100deg, transparent, rgba(200, 32, 61, 0.35), transparent);
+    clip-path: polygon(0 0, 100% 35%, 100% 100%, 0 65%);
+    margin: -2px 0;
+}
+
+.shard-divider.reverse {
+    clip-path: polygon(0 35%, 100% 0, 100% 65%, 0 100%);
+}
+
+/* -----------------------------------------------------------
+   4. GLASS SURFACES
+   ----------------------------------------------------------- */
+.glass-card,
+.glass-shard {
+    background: var(--glass);
+    backdrop-filter: blur(var(--blur)) saturate(140%);
+    -webkit-backdrop-filter: blur(var(--blur)) saturate(140%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-glass);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+/* -----------------------------------------------------------
+   5. TOP BAR
+   ----------------------------------------------------------- */
+.ash-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-muted);
+}
+.back-link:hover { color: var(--crimson-bright); }
+
+.header-mark { color: var(--text-faint); letter-spacing: 0.05em; }
+
+/* -----------------------------------------------------------
+   6. HERO
+   ----------------------------------------------------------- */
+.hero {
+    position: relative;
+    max-width: var(--container-width);
+    margin: 3rem auto 0;
+    padding: 4rem 3rem;
+    overflow: hidden;
+    animation: fadeInUp 0.8s var(--transition-slow) both;
+}
+
+.hero-glow {
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 77, 109, 0.35), transparent 70%);
+    filter: blur(10px);
+    animation: pulseGlow 5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--crimson-bright);
+    margin-bottom: 0.6rem;
+}
+
+.hero-tagline {
+    font-size: 1.15rem;
+    max-width: 480px;
+    margin-top: 1rem;
+    color: #E2C4C9;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.2rem;
+}
+
+/* -----------------------------------------------------------
+   7. BUTTONS
+   ----------------------------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.8rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.92rem;
+    border: none;
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--crimson), var(--crimson-deep));
+    color: #FFF3F1;
+    box-shadow: 0 6px 20px rgba(200, 32, 61, 0.35);
+}
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(255, 77, 109, 0.45);
+}
+
+.btn-ghost {
+    background: var(--glass);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+}
+.btn-ghost:hover {
+    border-color: var(--crimson-bright);
+    transform: translateY(-3px);
+}
+
+.form-success {
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--crimson-bright);
+    min-height: 1.2rem;
+}
+
+/* -----------------------------------------------------------
+   8. ABOUT SECTION — Flexbox layout
+   ----------------------------------------------------------- */
+.about-section {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    animation: fadeInUp 0.8s var(--transition-slow) both;
+}
+
+.about-photo { flex: 0 0 220px; }
+
+.photo-placeholder {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: var(--glass);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border: 1px dashed var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    padding: 1rem;
+}
+
+.about-text { flex: 1; }
+
+.bio-paragraph { margin-top: 1rem; max-width: 560px; }
+
+/* -----------------------------------------------------------
+   9. EDUCATION — timeline (flexbox column)
+   ----------------------------------------------------------- */
+.education-section,
+.skills-section,
+.projects-section,
+.achievements-section {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    position: relative;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--crimson-bright);
+    box-shadow: 0 0 12px var(--crimson-bright);
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+}
+
+.timeline-content {
+    padding: 1.5rem 1.8rem;
+    flex: 1;
+}
+
+.timeline-meta {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--crimson-bright);
+    margin-top: 0.3rem;
+}
+
+.timeline-detail { margin-top: 0.6rem; }
+
+/* -----------------------------------------------------------
+   10. SKILLS — CSS Grid + CSS-only progress bars
+   ----------------------------------------------------------- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem 2.5rem;
+    margin-top: 2rem;
+}
+
+.skill-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.skill-name { font-weight: 600; color: var(--text-main); }
+
+.skill-percent {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--crimson-bright);
+}
+
+.skill-track {
+    height: 10px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+}
+
+/* The bar's final width comes from the --level custom property set
+   inline on each .skill-fill in the HTML (style="--level: 85%"). The
+   keyframe animates it growing in from 0 on page load. Pure CSS —
+   no JavaScript involved in drawing or animating these bars. */
+.skill-fill {
+    height: 100%;
+    width: var(--level, 0%);
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--crimson-deep), var(--crimson-bright));
+    box-shadow: 0 0 10px var(--crimson-bright);
+    animation: fillBar 1.4s var(--transition-slow) both;
+    animation-delay: 0.3s;
+}
+
+@keyframes fillBar {
+    from { width: 0%; }
+    to { width: var(--level, 0%); }
+}
+
+/* -----------------------------------------------------------
+   11. PROJECTS — CSS Grid
+   ----------------------------------------------------------- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+    margin-top: 2rem;
+}
+
+.project-card { padding: 1.8rem; }
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--crimson-bright);
+    box-shadow: 0 16px 40px rgba(200, 32, 61, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.project-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--crimson-bright);
+    margin-bottom: 0.5rem;
+}
+
+.project-card h3 { margin-bottom: 0.6rem; }
+.project-card p { font-size: 0.95rem; }
+
+.project-stack {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-faint);
+    margin-top: 1rem;
+}
+
+.project-card-empty {
+    border-style: dashed;
+    opacity: 0.7;
+}
+
+/* -----------------------------------------------------------
+   12. ACHIEVEMENTS
+   ----------------------------------------------------------- */
+.achievements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2rem;
+}
+
+.achievements-list li { padding: 1.5rem 1.8rem; }
+.achievements-list h3 { font-size: 1.1rem; }
+.achievements-list p:last-child { margin-top: 0.5rem; }
+
+/* -----------------------------------------------------------
+   13. FOOTER
+   ----------------------------------------------------------- */
+.ash-footer {
+    max-width: var(--container-width);
+    margin: 2rem auto 0;
+    padding: 3rem 1.5rem 4rem;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.print-btn { margin-bottom: 1.5rem; }
+
+.footer-note {
+    font-size: 0.8rem;
+    color: var(--text-faint);
+}
+.footer-note a { color: var(--text-faint); text-decoration: underline; }
+.footer-note a:hover { color: var(--crimson-bright); }
+
+/* -----------------------------------------------------------
+   14. ANIMATIONS
+   ----------------------------------------------------------- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+.about-section,
+.education-section,
+.skills-section,
+.projects-section,
+.achievements-section {
+    animation: fadeInUp 0.8s var(--transition-slow) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+/* -----------------------------------------------------------
+   15. RESPONSIVE (mobile-first override at narrow widths)
+   ----------------------------------------------------------- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.6rem; }
+    h2 { font-size: 1.7rem; }
+
+    .hero { padding: 3rem 1.8rem; }
+
+    .about-section { flex-direction: column; text-align: center; }
+    .about-photo { flex: none; }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline { padding-left: 0; }
+}
