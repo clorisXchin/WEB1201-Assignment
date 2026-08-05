@@ -1,0 +1,791 @@
+/* =========================================================
+   ASRIEL'S PORTFOLIO - MAIN STYLESHEET
+   ========================================================= */
+
+/* Reusable values keep the colours and spacing consistent. */
+:root {
+    --page-background: #f5f7f4;
+    --soft-background: #e9eee9;
+    --card-background: #ffffff;
+    --main-text: #172019;
+    --body-text: #58615a;
+    --accent-colour: #2f8a58;
+    --accent-dark: #20653f;
+    --border-colour: #d4ddd5;
+    --main-font: Arial, Helvetica, sans-serif;
+    --page-width: 1120px;
+    --section-space: 96px;
+    --small-radius: 10px;
+    --large-radius: 24px;
+}
+
+/* Basic reset removes browser spacing differences. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--page-background);
+    color: var(--main-text);
+    font-family: var(--main-font);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+.page-width {
+    margin: 0 auto;
+    max-width: var(--page-width);
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* The skip link is only visible when a keyboard user selects it. */
+.skip-link {
+    background-color: var(--main-text);
+    color: #ffffff;
+    left: 16px;
+    padding: 10px 16px;
+    position: fixed;
+    top: -60px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 12px;
+}
+
+/* HEADER AND NAVIGATION */
+.site-header {
+    background-color: rgba(245, 247, 244, 0.96);
+    border-bottom: 1px solid transparent;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.header-content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    min-height: 82px;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.logo span {
+    color: var(--accent-colour);
+}
+
+.main-navigation {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.main-navigation a {
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 8px 0;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.main-navigation a::after {
+    background-color: var(--accent-colour);
+    bottom: 2px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+    width: 100%;
+}
+
+.main-navigation a:hover::after,
+.main-navigation a:focus::after {
+    transform: scaleX(1);
+}
+
+/* HERO SECTION */
+.hero-section {
+    min-height: 690px;
+    padding: 88px 0 104px;
+}
+
+.hero-layout {
+    align-items: center;
+    display: grid;
+    gap: 80px;
+    grid-template-columns: 1.2fr 0.8fr;
+}
+
+.hero-text {
+    animation: fade-up 0.7s ease-out;
+}
+
+.section-label {
+    color: var(--accent-colour);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    margin-bottom: 16px;
+}
+
+.hero-text h1 {
+    font-size: clamp(4rem, 9vw, 7.5rem);
+    letter-spacing: -0.07em;
+    line-height: 0.9;
+}
+
+.hero-text h2 {
+    font-size: clamp(1.55rem, 3vw, 2.35rem);
+    font-weight: 600;
+    line-height: 1.25;
+    margin-top: 28px;
+    max-width: 670px;
+}
+
+.hero-description {
+    color: var(--body-text);
+    font-size: 1.04rem;
+    margin-top: 22px;
+    max-width: 650px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+}
+
+.primary-button,
+.secondary-button {
+    align-items: center;
+    border: 2px solid var(--accent-colour);
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 0.91rem;
+    font-weight: 700;
+    justify-content: center;
+    min-height: 48px;
+    padding: 10px 24px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.primary-button {
+    background-color: var(--accent-colour);
+    color: #ffffff;
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: var(--accent-dark);
+}
+
+.primary-button:hover,
+.primary-button:focus,
+.secondary-button:hover,
+.secondary-button:focus {
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.profile-card {
+    animation: fade-up 0.8s ease-out;
+    border: 5px solid var(--accent-colour);
+    border-radius: 200px 200px 28px 28px;
+    box-sizing: border-box;
+    height: 520px;
+    justify-self: center;
+    max-width: 400px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+/* Forces the photograph to cover every part of the frame. */
+.profile-card>.profile-photo {
+    display: block;
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/* Places the words directly over the photo with no coloured box. */
+.profile-card>.profile-motto {
+    background-color: transparent;
+    border-radius: 0;
+    bottom: 24px;
+    box-shadow: none;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    left: 20px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 20px;
+    text-align: center;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+    z-index: 1;
+}
+
+.profile-motto {
+    background-color: rgba(25, 48, 39, 0.82);
+    border-radius: 14px;
+    bottom: 24px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    left: 24px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 12px 16px;
+    position: absolute;
+    right: 24px;
+    text-align: center;
+}
+
+/* SHARED SECTION STYLES */
+.content-section {
+    padding: var(--section-space) 0;
+}
+
+.soft-background {
+    background-color: var(--soft-background);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    letter-spacing: -0.04em;
+    line-height: 1.12;
+    max-width: 720px;
+}
+
+.section-description {
+    color: var(--body-text);
+    margin-top: 20px;
+    max-width: 590px;
+}
+
+/* ABOUT SECTION */
+.about-layout {
+    display: grid;
+    gap: 90px;
+    grid-template-columns: 0.95fr 1.05fr;
+}
+
+.about-text {
+    color: var(--body-text);
+    font-size: 1.02rem;
+}
+
+.about-text>p+p {
+    margin-top: 18px;
+}
+
+.quick-details {
+    border-top: 1px solid var(--border-colour);
+    display: flex;
+    gap: 45px;
+    margin-top: 34px;
+    padding-top: 26px;
+}
+
+.quick-details div {
+    display: flex;
+    flex-direction: column;
+}
+
+.quick-details strong {
+    color: var(--main-text);
+    font-size: 0.9rem;
+}
+
+.quick-details span {
+    font-size: 0.9rem;
+}
+
+/* EDUCATION SECTION */
+.education-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 46px;
+}
+
+.education-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-colour);
+    border-radius: var(--large-radius);
+    min-height: 290px;
+    padding: 36px;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.education-card:hover {
+    box-shadow: 0 18px 45px rgba(31, 56, 40, 0.09);
+    transform: translateY(-5px);
+}
+
+.card-number {
+    color: var(--accent-colour);
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.education-date {
+    color: var(--accent-dark);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-top: 32px;
+    text-transform: uppercase;
+}
+
+.education-card h3 {
+    font-size: 1.35rem;
+    line-height: 1.35;
+    margin-top: 8px;
+}
+
+.education-card p:last-child {
+    color: var(--body-text);
+    margin-top: 14px;
+}
+
+/* SKILLS SECTION */
+.skills-layout {
+    align-items: start;
+    display: grid;
+    gap: 90px;
+    grid-template-columns: 0.9fr 1.1fr;
+}
+
+/* This grid places two skill cards in each row. */
+.skill-grid {
+    display: grid;
+    gap: 34px 24px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Each card keeps its logo and skill name centred. */
+.skill-card {
+    text-align: center;
+}
+
+/* This creates the outlined circle around every logo. */
+.skill-logo-box {
+    align-items: center;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-colour);
+    border-radius: 50%;
+    display: flex;
+    height: 150px;
+    justify-content: center;
+    margin: 0 auto 14px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+    width: 150px;
+}
+
+/* The logo rises slightly when the visitor points at a skill. */
+.skill-card:hover .skill-logo-box {
+    border-color: var(--accent-colour);
+    transform: translateY(-4px);
+}
+
+/* Controls the normal size of each logo. */
+.skill-logo {
+    height: 68px;
+    object-fit: contain;
+    width: 68px;
+}
+
+/* Adds space between the HTML and CSS logos. */
+.skill-logo-pair {
+    gap: 8px;
+}
+
+/* Makes the two logos fit inside the same circle. */
+.skill-logo-pair .skill-logo {
+    height: 54px;
+    width: 54px;
+}
+
+/* Styles the skill name underneath its logo. */
+.skill-card p {
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* PROJECT SECTION */
+.project-grid {
+    display: grid;
+    gap: 22px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 46px;
+}
+
+.project-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-colour);
+    border-radius: var(--large-radius);
+    display: flex;
+    flex-direction: column;
+    min-height: 360px;
+    padding: 32px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.project-card:hover {
+    border-color: var(--accent-colour);
+    transform: translateY(-5px);
+}
+
+.project-type {
+    color: var(--accent-colour);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+.project-card h3 {
+    font-size: 1.45rem;
+    line-height: 1.3;
+    margin-top: 24px;
+}
+
+.project-card p {
+    color: var(--body-text);
+    font-size: 0.95rem;
+    margin-top: 14px;
+}
+
+.project-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin-top: auto;
+    padding-top: 26px;
+}
+
+.project-tools li {
+    background-color: var(--soft-background);
+    border-radius: 99px;
+    color: var(--accent-dark);
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 5px 11px;
+}
+
+/* CONTACT FORM */
+.contact-section {
+    background-color: var(--main-text);
+    color: #ffffff;
+}
+
+.contact-layout {
+    align-items: start;
+    display: grid;
+    gap: 80px;
+    grid-template-columns: 0.8fr 1.2fr;
+}
+
+.contact-section .section-description {
+    color: #bdc8c0;
+}
+
+.enquiry-form {
+    background-color: #ffffff;
+    border-radius: var(--large-radius);
+    color: var(--main-text);
+    padding: 36px;
+}
+
+.form-row {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 0.86rem;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background-color: #f8faf8;
+    border: 1px solid var(--border-colour);
+    border-radius: var(--small-radius);
+    color: var(--main-text);
+    outline: none;
+    padding: 12px 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-colour);
+    box-shadow: 0 0 0 3px rgba(47, 138, 88, 0.14);
+}
+
+.form-button {
+    border: 0;
+}
+
+.form-note {
+    color: var(--accent-dark);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 15px;
+    min-height: 26px;
+}
+
+/* FOOTER */
+.site-footer {
+    background-color: #0f1611;
+    color: #b9c2bb;
+    padding: 24px 0;
+}
+
+.footer-content {
+    align-items: center;
+    display: flex;
+    font-size: 0.86rem;
+    justify-content: space-between;
+}
+
+.footer-content a {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* A short entrance animation satisfies the animation requirement. */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TABLET LAYOUT */
+@media screen and (max-width: 900px) {
+    :root {
+        --section-space: 76px;
+    }
+
+    .header-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    .main-navigation {
+        gap: 18px;
+    }
+
+    .hero-layout,
+    .about-layout,
+    .skills-layout,
+    .contact-layout {
+        gap: 50px;
+        grid-template-columns: 1fr;
+    }
+
+    .hero-section {
+        padding-top: 60px;
+    }
+
+    .profile-card {
+        border-radius: 190px 190px 26px 26px;
+        height: 500px;
+        max-width: 380px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* MOBILE LAYOUT */
+@media screen and (max-width: 620px) {
+    :root {
+        --section-space: 62px;
+    }
+
+    .page-width {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .site-header {
+        position: static;
+    }
+
+    .main-navigation {
+        gap: 8px 16px;
+    }
+
+    .main-navigation a {
+        font-size: 0.75rem;
+    }
+
+    .hero-section {
+        min-height: auto;
+        padding-bottom: 70px;
+        padding-top: 45px;
+    }
+
+    .hero-text h1 {
+        font-size: 4.2rem;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+    }
+
+    .profile-card {
+        border-radius: 165px 165px 22px 22px;
+        height: 420px;
+        max-width: 330px;
+    }
+
+    .profile-card>.profile-motto {
+        bottom: 18px;
+        font-size: 0.82rem;
+        left: 16px;
+        right: 16px;
+    }
+
+    /* Makes the hovering motto fit the smaller photograph. */
+    .profile-motto {
+        bottom: 18px;
+        font-size: 0.82rem;
+        left: 16px;
+        padding: 10px 14px;
+        right: 16px;
+    }
+
+    .quick-details,
+    .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .education-grid,
+    .project-grid,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .education-card,
+    .project-card {
+        min-height: auto;
+    }
+
+    .enquiry-form {
+        padding: 24px 20px;
+    }
+
+    /* Keep two skills in each row while making them fit a phone screen. */
+    .skill-grid {
+        gap: 28px 16px;
+    }
+
+    .skill-logo-box {
+        height: 120px;
+        width: 120px;
+    }
+
+    .skill-logo {
+        height: 56px;
+        width: 56px;
+    }
+
+    .skill-logo-pair .skill-logo {
+        height: 44px;
+        width: 44px;
+    }
+}
+
+/* Users who prefer less movement will not receive the entrance animation. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero-text,
+    .profile-card {
+        animation: none;
+    }
+
+    * {
+        transition: none !important;
+    }
+}
