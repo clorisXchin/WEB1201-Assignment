@@ -1,0 +1,86 @@
+/* =========================================================
+   ASRIEL'S PORTFOLIO - PRINT STYLESHEET
+   This file is linked with media="print" in the HTML.
+   ========================================================= */
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 11pt;
+}
+
+/* Navigation, buttons, form, and decorative elements are not needed on paper. */
+.site-header,
+.skip-link,
+.hero-buttons,
+.profile-card,
+.enquiry-form,
+.site-footer {
+    display: none;
+}
+
+.page-width {
+    max-width: none;
+    padding: 0;
+}
+
+.hero-section,
+.content-section {
+    background-color: #ffffff;
+    min-height: auto;
+    padding: 22px 0;
+}
+
+.hero-layout,
+.about-layout,
+.skills-layout,
+.contact-layout {
+    display: block;
+}
+
+.hero-text h1 {
+    font-size: 42pt;
+}
+
+.hero-text h2 {
+    font-size: 20pt;
+}
+
+.section-title {
+    font-size: 22pt;
+}
+
+.about-text,
+.skill-list {
+    margin-top: 18px;
+}
+
+.education-grid,
+.project-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 18px;
+}
+
+.education-card,
+.project-card {
+    border: 1px solid #777777;
+    break-inside: avoid;
+    min-height: auto;
+    padding: 16px;
+}
+
+.project-tools li,
+.skill-track {
+    border: 1px solid #999999;
+}
+
+.contact-section {
+    color: #000000;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
