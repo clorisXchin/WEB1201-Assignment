@@ -395,6 +395,28 @@ a:focus-visible, button:focus-visible {
     to { width: var(--level, 0%); }
 }
 
+.skill-fill.level-0 { --level: 0%; }
+.skill-fill.level-5 { --level: 5%; }
+.skill-fill.level-10 { --level: 10%; }
+.skill-fill.level-15 { --level: 15%; }
+.skill-fill.level-20 { --level: 20%; }
+.skill-fill.level-25 { --level: 25%; }
+.skill-fill.level-30 { --level: 30%; }
+.skill-fill.level-35 { --level: 35%; }
+.skill-fill.level-40 { --level: 40%; }
+.skill-fill.level-45 { --level: 45%; }
+.skill-fill.level-50 { --level: 50%; }
+.skill-fill.level-55 { --level: 55%; }
+.skill-fill.level-60 { --level: 60%; }
+.skill-fill.level-65 { --level: 65%; }
+.skill-fill.level-70 { --level: 70%; }
+.skill-fill.level-75 { --level: 75%; }
+.skill-fill.level-80 { --level: 80%; }
+.skill-fill.level-85 { --level: 85%; }
+.skill-fill.level-90 { --level: 90%; }
+.skill-fill.level-95 { --level: 95%; }
+.skill-fill.level-100 { --level: 100%; }
+
 /* -------------
    11. PROJECTS 
    ------------- */

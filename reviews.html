@@ -12,20 +12,16 @@
     <script src="js/reviews.js" defer></script>
 </head>
 <body>
-    <!-- This skip link appears when keyboard users press Tab, allowing them to jump directly to the main page content instead of tabbing through every navigation item. -->
     <a class="skip-link" href="#mainContent">Skip to main content</a>
 
-    <!-- This fixed header contains the brand name, responsive navigation links, search link, order link, and theme switcher required for the website theme toggle feature. -->
     <header class="site-header" id="siteHeader">
         <div class="nav-wrap">
             <a href="index.html" class="brand" aria-label="Willow Brew homepage">Willow Brew</a>
 
-            <!-- This button appears on smaller screens and opens or closes the navigation menu using JavaScript in main.js. -->
             <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
                 ☰
             </button>
 
-            <!-- This navigation menu links to all major website pages so the multi-page website can be accessed consistently from every page. -->
             <nav class="main-nav" id="mainNav" aria-label="Main navigation">
                 <a href="index.html">Home</a>
                 <a href="catalogue.html">Menu</a>
@@ -46,14 +42,12 @@
 
 
     <main id="mainContent" class="page-main">
-        <!-- This reviews hero introduces the interactive feedback module required by the assignment. -->
         <section class="simple-hero compact-hero">
             <p class="eyebrow dark">Customer Reviews</p>
             <h1>Share Your Willow Experience</h1>
             <p>Submit a star rating and text review. New reviews appear instantly on the page.</p>
         </section>
 
-        <!-- This review form is connected to js/reviews.js for star rating, character count, localStorage, and dynamic review display. -->
         <section class="review-section section-padding" aria-labelledby="review-form-title">
             <div class="review-form-card">
                 <h2 id="review-form-title">Leave a Review</h2>
@@ -91,7 +85,6 @@
                 </form>
             </div>
 
-            <!-- This list area is filled by JavaScript when users submit reviews or when saved reviews are loaded from localStorage. -->
             <div class="review-list-card">
                 <h2>Recent Reviews</h2>
                 <div id="reviewList" class="review-list"></div>
@@ -99,7 +92,6 @@
         </section>
     </main>
 
-    <!-- This footer gives the website a finished commercial look and provides quick links, customer care links, and contact details similar to a premium coffee brand footer. -->
     <footer class="site-footer">
         <div class="footer-wrap">
             <div class="footer-brand">

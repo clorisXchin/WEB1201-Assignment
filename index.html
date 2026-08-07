@@ -12,15 +12,13 @@
     
 </head>
 <body>
-    <!-- This skip link appears when keyboard users press Tab, allowing them to jump directly to the main page content instead of tabbing through every navigation item. -->
     <a class="skip-link" href="#mainContent">Skip to main content</a>
 
-    <!-- This fixed header contains the brand name, responsive navigation links, search link, order link, and theme switcher required for the website theme toggle feature. -->
+
     <header class="site-header" id="siteHeader">
         <div class="nav-wrap">
             <a href="index.html" class="brand" aria-label="Willow Brew homepage">Willow Brew</a>
 
-            <!-- This button appears on smaller screens and opens or closes the navigation menu using JavaScript in main.js. -->
             <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
                 ☰
             </button>
@@ -51,9 +49,7 @@
 
 
     <main id="mainContent">
-        <!-- This hero section is the first visual section of the homepage and introduces the coffee shop with a premium dark background image and two main call-to-action buttons. -->
         <section class="hero-section" aria-labelledby="hero-title">
-            <!-- HERO IMAGE: change this image in css/style.css under .hero-bg and body.brew-theme .hero-bg when you want to use your own local image. -->
             <div class="hero-bg"></div>
             <div class="hero-overlay"></div>
 
@@ -78,9 +74,7 @@
             </div>
         </section>
 
-        <!-- This story preview section matches the requested coffee-shop aesthetic by showing a large image beside a dark content card with an Explore Us button. -->
         <section class="story-preview section-padding" aria-labelledby="story-title">
-            <!-- STORY IMAGE: replace the online image in css/style.css under .story-image with a local cafe or coffee-bean image later. -->
             <div class="story-image"></div>
 
             <div class="story-card">
@@ -102,7 +96,6 @@
             </div>
         </section>
 
-        <!-- This product preview section displays two rows of products with three product cards per row, while the full searchable catalogue is placed on catalogue.html. -->
         <section class="products-preview section-padding" aria-labelledby="products-title">
             <div class="section-top">
                 <a href="catalogue.html" class="small-link">See all our products</a>
@@ -112,7 +105,6 @@
 
             <div class="product-grid preview-grid">
                 <article class="product-card">
-                    <!-- PRODUCT IMAGE 1: Asriel's Americano-on-the-rocks preview card. -->
                     <img src="images/Americanoontherocksss.jpg" alt="Americano on the rocks coffee in a glass">
                     <h3>Asriel's Americano-on-the-rocks</h3>
                     <p> 0 calories, 0 fat, 0 Sugar = no sugar spike. Asriel's magic potion for a perfect morning </p>
@@ -123,7 +115,6 @@
                 </article>
 
                 <article class="product-card">
-                    <!-- PRODUCT IMAGE 2: Cappuccino preview card. -->
                     <img src="images/cappuccino.png" alt="Cloud-Crafted Cappuccino in a cup">
                     <h3>Cloud-Crafted Cappuccino</h3>
                     <p>Classic espresso with rich foam.</p>
@@ -134,7 +125,6 @@
                 </article>
 
                 <article class="product-card">
-                    <!-- PRODUCT IMAGE 3: Mocha preview card. -->
                     <img src="images/mocha.png" alt="Mocha coffee with chocolate topping">
                     <h3>Mocha Noir Blend</h3>
                     <p>Espresso with chocolate and steamed milk.</p>
@@ -145,7 +135,6 @@
                 </article>
 
                 <article class="product-card">
-                    <!-- PRODUCT IMAGE 4: Espresso preview card. -->
                     <img src="images/espresso.png" alt="Small cup of espresso coffee">
                     <h3>Boring Espresso</h3>
                     <p>Strong, bold, and pure coffee taste.</p>
@@ -156,7 +145,6 @@
                 </article>
 
                 <article class="product-card">
-                    <!-- PRODUCT IMAGE 5: Matcha Latte preview card. -->
                     <img src="images/matcha latte.png" alt="Iced matcha latte in a glass">
                     <h3>Hui Yan's Matcha Latte</h3>
                     <p>Earthy matcha with creamy milk.</p>
@@ -167,7 +155,6 @@
                 </article>
 
                 <article class="product-card">
-                    <!-- PRODUCT IMAGE 6: Seasonal pastry preview card. -->
                     <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="Freshly baked pastry on a table">
                     <h3>Seasonal Pastry</h3>
                     <p>Freshly baked pastry of the day.</p>
@@ -179,7 +166,6 @@
             </div>
         </section>
 
-        <!-- This team preview section replaces the old carousel with three simple clickable image boxes, so no JavaScript is needed for this part. -->
         <section class="team-preview section-padding" aria-labelledby="team-title">
             <div class="section-top centered">
                 <p class="eyebrow dark">Meet the people</p>
@@ -191,7 +177,6 @@
 
             <div class="team-simple-grid">
                 <a href="portfolio_asriel.html" class="team-image-card">
-                    <!-- TEAM IMAGE 1: Replace this with Asriel's actual photo later. -->
                     <img src="images/image1.jpg" alt="Team member representing Asriel">
                     <div class="team-image-info">
                         <h3>Asriel Looi</h3>
@@ -200,17 +185,15 @@
                 </a>
 
                 <a href="portfolio_ash.html" class="team-image-card">
-                    <!-- TEAM IMAGE 2: Replace this with Ash's actual photo later. -->
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Team member representing Member Two">
+                    <img src="images/image2.png" alt="Team member representing Ash">
                     <div class="team-image-info">
                         <h3>Ash</h3>
-                        <p>CSS developer & Design Lead</p>
+                        <p>Project Lead, CSS Developer & Caffeine Addict</p>
                     </div>
                 </a>
 
                 <a href="portfolio_huiyan.html" class="team-image-card">
-                    <!-- TEAM IMAGE 3: Replace this with Hui Yan's actual photo later. -->
-                    <img src="images/image3.jpg" alt="Team member representing Member Three">
+                    <img src="images/image3.jpg" alt="Team member representing Hui Yan">
                     <div class="team-image-info">
                         <h3>Hui Yan</h3>
                         <p>HTML Developer</p>
@@ -219,14 +202,12 @@
             </div>
         </section>
 
-        <!-- This visit section gives basic location and operating-hour information so the homepage feels complete like a real coffee shop website. -->
         <section class="visit-section section-padding" id="visit" aria-labelledby="visit-title">
             <h2 id="visit-title">Stay in the Loop</h2>
             <p>Visit Willow Brew at Lot G-08, City Walk, Kuala Lumpur. Open daily from 8.00 AM to 10.00 PM.</p>
         </section>
     </main>
 
-    <!-- This footer gives the website a finished commercial look and provides quick links, customer care links, and contact details similar to a premium coffee brand footer. -->
     <footer class="site-footer">
         <div class="footer-wrap">
             <div class="footer-brand">
