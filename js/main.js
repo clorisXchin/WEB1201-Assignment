@@ -37,3 +37,6 @@ function updateLoginLink() {
 
 /* This statement runs after the shared script is loaded at the bottom of each page and prepares the cross-page login greeting. */
 updateLoginLink();
+
+// Opens and closes the mobile navigation menu when the hamburger button is clicked
+document.getElementById("navToggle").addEventListener("click", toggleNavigation);
