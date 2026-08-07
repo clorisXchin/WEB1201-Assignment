@@ -505,12 +505,17 @@ body.light-theme .hero-bg {
     align-items: stretch;
 }
 
+/* Dark theme is the default theme */
 .story-image {
     border-radius: var(--radius-lg);
-    background-image: url("https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=80");
+    background-image: url("https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1600&q=80");
     background-size: cover;
     background-position: center;
     min-height: 380px;
+}
+
+body.light-theme .story-image {
+    background-image: url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80");
 }
 
 .story-card {
