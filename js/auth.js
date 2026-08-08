@@ -1,6 +1,6 @@
 /*
     This file is used for the three-step registration form
-    and the simple simulated login form. It uses localStorage, so the account is only saved inside the user's browser. It is not a real database.
+    and the simple simulated login form. It uses localStorage, so the account is only saved inside the user's browser  not a real database.
 */
 
 
@@ -9,7 +9,6 @@
     0 = Step 1, 1 = Step 2, 2 = Step 3.
 */
 var currentStep = 0;
-
 /* Get the registration form and its main buttons. */
 var registerForm = document.getElementById("registerForm");
 var nextButton = document.getElementById("nextStep");
@@ -31,7 +30,6 @@ function showInputError(inputId, message) {
     */
     var errorBox =
         input.parentNode.getElementsByClassName("error-message")[0];
-    /* Put the error text inside the error box. */
     errorBox.innerHTML = message;
 }
 
@@ -40,11 +38,10 @@ function clearInputError(inputId) {
     var input = document.getElementById(inputId);
     var errorBox =
         input.parentNode.getElementsByClassName("error-message")[0];
-    /* An empty string removes the old message. */
     errorBox.innerHTML = "";
 }
 /*
-    Validate one registration step. It returns true if the step is correct,or false if there is an input problem.
+    Validate one registration step. true if the step is correct, false if there is an input problem.
 */
 function validateRegistrationStep(stepNumber) {
     /* Start by assuming that the step is valid. */
@@ -57,13 +54,12 @@ function validateRegistrationStep(stepNumber) {
         /* Clear previous errors before checking again. */
         clearInputError("fullName");
         clearInputError("phoneNumber");
-        /* The name cannot be empty. */
         if (fullName === "") {
             showInputError("fullName", "Please enter your full name.");
             valid = false;
         }
         /*
-            The phone number is rejected when: it is empty,isNaN reports that it is not a number, it is shorter than 10 digits, it is longer than 11 digits
+            The phone number is rejected when: it is empty, not a number,  shorter than 10 digits,  longer than 11 digits
         */
         if (
             phoneNumber === "" ||
@@ -115,7 +111,6 @@ function validateRegistrationStep(stepNumber) {
         var favouriteDrink =
             document.getElementById("favouriteDrink").value;
         clearInputError("favouriteDrink");
-        /* The first dropdown option uses an empty value. */
         if (favouriteDrink === "") {
             showInputError(
                 "favouriteDrink",
@@ -131,7 +126,6 @@ function validateRegistrationStep(stepNumber) {
 
 /* Show only the current form step and update the progress indicator. */
 function showRegistrationStep() {
-    /* Get all three fieldsets and all three progress labels. */
     var formSteps = document.getElementsByClassName("form-step");
     var progressSteps = document.getElementsByClassName("progress-step");
     var i;
@@ -206,7 +200,6 @@ function completeRegistration() {
     localStorage.setItem("willowPassword", password);
     localStorage.setItem("willowDrink", favouriteDrink);
     localStorage.setItem("willowNewsletter", newsletter);
-    /* Show a success message using the registered name. */
     registerSuccess.innerHTML =
         "Account created for " +
         fullName +
@@ -215,7 +208,6 @@ function completeRegistration() {
     registerForm.reset();
     currentStep = 0;
     showRegistrationStep();
-    /* Prevent the normal form submission and page reload. */
     return false;
 }
 
@@ -238,14 +230,11 @@ var loginGreeting = document.getElementById("loginGreeting");
 
 /* Check the entered login details against the saved registration. */
 function checkLogin() {
-    /* Get the values entered on the login page. */
     var email = document.getElementById("loginEmail").value;
     var password = document.getElementById("loginPassword").value;
-    /* Get the account information saved during registration. */
     var savedEmail = localStorage.getItem("willowEmail");
     var savedPassword = localStorage.getItem("willowPassword");
     var savedName = localStorage.getItem("willowName");
-    /* Clear messages left from an earlier login attempt. */
     loginMessage.innerHTML = "";
     loginGreeting.innerHTML = "";
 
@@ -253,7 +242,6 @@ function checkLogin() {
     if (email === "" || password === "") {
         loginMessage.innerHTML = "Please enter your email and password.";
     } else if (savedEmail === null || savedPassword === null) {
-        /* null means no account was saved in this browser. */
         loginMessage.innerHTML =
             "No registered account was found in this browser.";
     } else if (email !== savedEmail || password !== savedPassword) {
@@ -269,7 +257,6 @@ function checkLogin() {
     loginGreeting.innerHTML = "Welcome back, " + savedName + "!";
     /* Change Login to Hi, name in the navigation. */
     updateLoginLink();
-    /* Clear the login fields. */
     loginForm.reset();
     }
     /* Prevent the form from reloading the page. */
